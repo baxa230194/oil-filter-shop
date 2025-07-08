@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oil & Filter Shop | Uzbekistan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #c62828;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin: 10px 0;
+    }
+    .product h3 {
+      margin: 0 0 10px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #c62828;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #b71c1c;
+    }
+    .cart {
+      margin-top: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Oil & Filter Shop</h1>
+    <p>Масла и фильтры для всех типов техники</p>
+  </header>
+
+  <main>
+    <div class="product">
+      <h3>Масло SHELL Helix 10W-40</h3>
+      <p>Синтетическое моторное масло, 4 литра</p>
+      <button class="btn" onclick="addToCart('SHELL Helix 10W-40')">Добавить в корзину</button>
+    </div>
+    <div class="product">
+      <h3>Фильтр масляный MANN W610/3</h3>
+      <p>Для легковых автомобилей</p>
+      <button class="btn" onclick="addToCart('Фильтр MANN W610/3')">Добавить в корзину</button>
+    </div>
+    <div class="product">
+      <h3>Воздушный фильтр Sakura A-1234</h3>
+      <p>Подходит для Toyota, Lexus</p>
+      <button class="btn" onclick="addToCart('Воздушный фильтр Sakura A-1234')">Добавить в корзину</button>
+    </div>
+
+    <div class="cart">
+      <h2>🛒 Корзина</h2>
+      <ul id="cartList"></ul>
+      <button class="btn" onclick="orderNow()">Заказать в Telegram</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Oil & Filter Shop | Uzbekistan</p>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(item) {
+      cart.push(item);
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById("cartList");
+      cartList.innerHTML = "";
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        cartList.appendChild(li);
+      });
+    }
+
+    function orderNow() {
+      const message = encodeURIComponent("Здравствуйте! Я хочу заказать: \n" + cart.join("\n"));
+      const telegramUser = "oilfiltershop"; // Замени на свой username или username бота
+      const telegramLink = `https://t.me/${telegramUser}?text=${message}`;
+      window.open(telegramLink, '_blank');
+    }
+  </script>
+</body>
+</html>
