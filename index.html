@@ -3,23 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oil & Filter Shop | Uzbekistan</title>
+  <title>MOTUL | Oil & Filter Shop</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #c62828;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+    body {font-family: Arial, sans-serif; background:#f9f9f9; margin:0}
+    header {background:#c62828; color:#fff; padding:20px 10px; text-align:center}
+    nav {background:#b71c1c; display:flex; justify-content:center; gap:20px; flex-wrap:wrap}
+    nav a {color:#fff; text-decoration:none; padding:12px 5px; font-weight:600}
+    nav a:hover {text-decoration:underline}
+    main {padding:20px}
+    .product {background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.1); padding:15px; margin:10px 0}
+    .product h3 {margin:0 0 10px}
+    .btn {display:inline-block; padding:10px 15px; background:#c62828; color:#fff; border:none; border-radius:5px; cursor:pointer}
+    .btn:hover {background:#a91a1a}
+    .cart {margin-top:30px; background:#fff; padding:15px; border-radius:10px}
+    input {width:100%; padding:10px; margin-top:10px; border-radius:5px; border:1px solid #ccc}
+    footer {background:#eee; text-align:center; padding:20px 10px; margin-top:40px}
+    footer a{color:#c62828; text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Oil & Filter Shop</h1>
+    <p>Масла MOTUL и фильтры — закажи через Telegram</p>
+  </header>
 
-  <footer>
-    <p>© 2025 Oil & Filter Shop | Uzbekistan</p>
+  <!-- Меню -->
+  <nav>
+    <a href="#oils">Масла</a>
+    <a href="#filters">Фильтры</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+
+  <main>
+    <!-- Раздел масел -->
+    <h2 id="oils">🛢 Масла MOTUL</h2>
+
+    <div class="product"><h3>MOTUL 15W-40</h3><p>Минеральное масло для дизельных двигателей спецтехники</p><button class="btn" onclick="addToCart('MOTUL 15W-40')">Добавить в корзину</button></div>
+    <div class="product"><h3>MOTUL 10W-40</h3><p>Полусинтетика для дизелей и бензина</p><button class="btn" onclick="addToCart('MOTUL 10W-40')">Добавить в корзину</button></div>
+    <div class="product"><h3>MOTUL 20W-50</h3><p>Минеральное масло для грузовых и старых двигателей</p><button class="btn" onclick="addToCart('MOTUL 20W-50')">Добавить в корзину</button></div>
+    <div class="product"><h3>MOTUL 5W-30</h3><p>Синтетика для современных автомобилей</p><button class="btn" onclick="addToCart('MOTUL 5W-30')">Добавить в корзину</button></div>
+    <div class="product"><h3>MOTUL Gear 80W-90</h3><p>Трансмиссионное масло для мостов и КПП</p><button class="btn" onclick="addToCart('MOTUL Gear 80W-90')">Добавить в корзину</button></div>
+
+    <!-- Раздел фильтров -->
+    <h2 id="filters">🧰 Фильтры Fleetguard, Baldwin, Donaldson</h2>
+
+    <div class="product"><h3>Fleetguard LF777</h3><p>Масляный фильтр для дизельных двигателей Cummins</p><button class="btn" onclick="addToCart('Fleetguard LF777')">Добавить в корзину</button></div>
+    <div class="product"><h3>Baldwin BF1212</h3><p>Топливный фильтр для грузовиков и тракторов</p><button class="btn" onclick="addToCart('Baldwin BF1212')">Добавить в корзину</button></div>
+    <div class="product"><h3>Donaldson P181126</h3><p>Воздушный фильтр для спецтехники</p><button class="btn" onclick="addToCart('Donaldson P181126')">Добавить в корзину</button></div>
+
+    <!-- Корзина -->
+    <div class="cart">
+      <h2>🛒 Корзина</h2>
+      <ul id="cartList"></ul>
+      <input type="text" id="clientName" placeholder="Ваше имя" />
+      <input type="text" id="clientPhone" placeholder="Телефон (+998 …)" />
+      <button class="btn" style="margin-top:10px" onclick="orderNow()">Заказать в Telegram</button>
+    </div>
+  </main>
+
+  <!-- Контакты -->
+  <footer id="contacts">
+    <h3>Контакты</h3>
+    <p>Телефон: +998 90 000-00-00</p>
+    <p>Telegram: <a href="https://t.me/Baxa012394" target="_blank">@Baxa012394</a></p>
+    <p>Адрес: г. Ташкент, ул. Автозапчастей, 10</p>
+    <p>© 2025 Oil & Filter Shop</p>
   </footer>
 
   <script>
@@ -31,23 +79,19 @@
     }
 
     function renderCart() {
-      const cartList = document.getElementById("cartList");
-      cartList.innerHTML = "";
-      cart.forEach((item) => {
+      const list = document.getElementById("cartList");
+      list.innerHTML = "";
+      cart.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
-        cartList.appendChild(li);
+        list.appendChild(li);
       });
     }
 
     function orderNow() {
       const name = document.getElementById("clientName").value.trim();
       const phone = document.getElementById("clientPhone").value.trim();
-
-      if (!name || !phone) {
-        alert("Пожалуйста, введите имя и телефон.");
-        return;
-      }
+      if (!name || !phone) { alert("Пожалуйста, введите имя и телефон."); return; }
 
       const message = encodeURIComponent(
         "🛒 Новый заказ:\n" +
@@ -55,10 +99,7 @@
         "Телефон: " + phone + "\n" +
         "Товары:\n- " + cart.join("\n- ")
       );
-
-      const telegramUser = "Baxa012394";
-      const telegramLink = `https://t.me/${telegramUser}?text=${message}`;
-      window.open(telegramLink, "_blank");
+      window.open(`https://t.me/Baxa012394?text=${message}`, "_blank");
     }
   </script>
 </body>
