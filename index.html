@@ -49,6 +49,13 @@
       padding: 15px;
       border-radius: 10px;
     }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
     footer {
       background: #eee;
       text-align: center;
@@ -60,7 +67,7 @@
 <body>
   <header>
     <h1>Oil & Filter Shop</h1>
-    <p>Масла и фильтры для спецтехники и грузовых автомобилей</p>
+    <p>Масла и фильтры для спецтехники и грузовиков</p>
   </header>
 
   <main>
@@ -70,35 +77,19 @@
       <button class="btn" onclick="addToCart('Масло MOTUL 15W-40')">Добавить в корзину</button>
     </div>
     <div class="product">
-      <h3>Масло MOTUL 10W-40</h3>
-      <p>Полусинтетическое масло для грузовых автомобилей</p>
-      <button class="btn" onclick="addToCart('Масло MOTUL 10W-40')">Добавить в корзину</button>
-    </div>
-    <div class="product">
-      <h3>Масло MOTUL 20W-50</h3>
-      <p>Для старых дизельных и бензиновых двигателей спецтехники</p>
-      <button class="btn" onclick="addToCart('Масло MOTUL 20W-50')">Добавить в корзину</button>
-    </div>
-    <div class="product">
-      <h3>Трансмиссионное масло MOTUL 80W-90</h3>
-      <p>Для мостов, коробок передач и редукторов грузовиков</p>
-      <button class="btn" onclick="addToCart('Трансмиссионное масло MOTUL 80W-90')">Добавить в корзину</button>
-    </div>
-    <div class="product">
-      <h3>Фильтр масляный Fleetguard LF777</h3>
-      <p>Фильтр для двигателей Cummins и других дизелей спецтехники</p>
-      <button class="btn" onclick="addToCart('Фильтр масляный Fleetguard LF777')">Добавить в корзину</button>
-    </div>
-    <div class="product">
-      <h3>Воздушный фильтр Fleetguard AF25550</h3>
-      <p>Высокопроизводительный воздушный фильтр для спецтехники</p>
-      <button class="btn" onclick="addToCart('Воздушный фильтр Fleetguard AF25550')">Добавить в корзину</button>
+      <h3>Фильтр Fleetguard LF777</h3>
+      <p>Масляный фильтр для дизелей Cummins</p>
+      <button class="btn" onclick="addToCart('Фильтр Fleetguard LF777')">Добавить в корзину</button>
     </div>
 
     <div class="cart">
       <h2>🛒 Корзина</h2>
       <ul id="cartList"></ul>
-      <button class="btn" onclick="orderNow()">Заказать в Telegram</button>
+
+      <input type="text" id="clientName" placeholder="Ваше имя" />
+      <input type="text" id="clientPhone" placeholder="Телефон (+998...)" />
+
+      <button class="btn" style="margin-top: 10px;" onclick="orderNow()">Заказать в Telegram</button>
     </div>
   </main>
 
@@ -117,7 +108,7 @@
     function renderCart() {
       const cartList = document.getElementById("cartList");
       cartList.innerHTML = "";
-      cart.forEach((item, index) => {
+      cart.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = item;
         cartList.appendChild(li);
@@ -125,12 +116,25 @@
     }
 
     function orderNow() {
-      const message = encodeURIComponent("Здравствуйте! Я хочу заказать: \n" + cart.join("\n"));
-      const telegramUser = "oilfiltershop";
+      const name = document.getElementById("clientName").value.trim();
+      const phone = document.getElementById("clientPhone").value.trim();
+
+      if (!name || !phone) {
+        alert("Пожалуйста, введите имя и телефон.");
+        return;
+      }
+
+      const message = encodeURIComponent(
+        "🛒 Новый заказ:\n" +
+        "Имя: " + name + "\n" +
+        "Телефон: " + phone + "\n" +
+        "Товары:\n- " + cart.join("\n- ")
+      );
+
+      const telegramUser = "Baxa012394";
       const telegramLink = `https://t.me/${telegramUser}?text=${message}`;
-      window.open(telegramLink, '_blank');
+      window.open(telegramLink, "_blank");
     }
   </script>
 </body>
 </html>
-
