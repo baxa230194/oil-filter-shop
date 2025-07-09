@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0d1b2a; /* Тёмно-синий фон */
+      background: #0d1b2a;
       color: #f1f1f1;
       margin: 0;
       padding: 0;
@@ -32,7 +32,7 @@
       display: block;
     }
     nav a:hover {
-      background: #e63946; /* красный акцент */
+      background: #e63946;
       border-radius: 5px;
     }
     main {
@@ -93,6 +93,7 @@
 <body>
   <header>
     <h1>Oil & Filter Shop</h1>
+    <p>Поставщик качественных фильтров для спецтехники, грузовиков, сельхоз и промышленного оборудования</p>
     <p>Масла MOTUL и фильтры — закажи через Telegram</p>
   </header>
 
@@ -103,26 +104,20 @@
   </nav>
 
   <main>
-    <!-- 🔍 Поиск -->
     <input type="text" id="searchInput" placeholder="🔍 Поиск по бренду..." oninput="filterProducts()" />
 
-    <!-- Масла -->
     <h2 id="oils">🛢 Масла MOTUL</h2>
-
     <div class="product"><h3>MOTUL 15W-40</h3><p>Минеральное масло для дизельных двигателей спецтехники</p><button class="btn" onclick="addToCart('MOTUL 15W-40')">Добавить в корзину</button></div>
     <div class="product"><h3>MOTUL 10W-40</h3><p>Полусинтетика для дизелей и бензина</p><button class="btn" onclick="addToCart('MOTUL 10W-40')">Добавить в корзину</button></div>
     <div class="product"><h3>MOTUL 20W-50</h3><p>Масло для старых и грузовых двигателей</p><button class="btn" onclick="addToCart('MOTUL 20W-50')">Добавить в корзину</button></div>
     <div class="product"><h3>MOTUL 5W-30</h3><p>Синтетика для современных легковых автомобилей</p><button class="btn" onclick="addToCart('MOTUL 5W-30')">Добавить в корзину</button></div>
     <div class="product"><h3>MOTUL Gear 80W-90</h3><p>Трансмиссионное масло для мостов и КПП</p><button class="btn" onclick="addToCart('MOTUL Gear 80W-90')">Добавить в корзину</button></div>
 
-    <!-- Фильтры -->
     <h2 id="filters">🧰 Фильтры</h2>
-
     <div class="product"><h3>Fleetguard LF777</h3><p>Масляный фильтр для дизельных двигателей</p><button class="btn" onclick="addToCart('Fleetguard LF777')">Добавить в корзину</button></div>
     <div class="product"><h3>Baldwin BF1212</h3><p>Топливный фильтр для грузовиков и тракторов</p><button class="btn" onclick="addToCart('Baldwin BF1212')">Добавить в корзину</button></div>
     <div class="product"><h3>Donaldson P181126</h3><p>Воздушный фильтр для спецтехники</p><button class="btn" onclick="addToCart('Donaldson P181126')">Добавить в корзину</button></div>
 
-    <!-- Корзина -->
     <div class="cart">
       <h2>🛒 Корзина</h2>
       <ul id="cartList"></ul>
@@ -132,7 +127,6 @@
     </div>
   </main>
 
-  <!-- Контакты -->
   <footer id="contacts">
     <h3>📞 Контакты</h3>
     <p>Телефон: +998 95 926-50-94</p>
