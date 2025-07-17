@@ -1,77 +1,155 @@
-// Улучшенный сайт для продажи масел и фильтров с брендом REETGUARD
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oil & Filter Shop | Uzbekistan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0D1B2A;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      color: #e63946;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #1B263B;
+      border: 1px solid #e63946;
+      border-radius: 12px;
+      padding: 15px;
+    }
+    .card h2 {
+      color: #ef4444;
+      margin: 0 0 5px;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .cart {
+      margin-top: 40px;
+      background: #1B263B;
+      padding: 20px;
+      border: 1px solid #e63946;
+      border-radius: 12px;
+    }
+    .cart input {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background: #0D1B2A;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Oil & Filter Shop | Uzbekistan</h1>
+  <div class="products" id="products"></div>
 
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ShoppingCart } from "lucide-react";
-import { motion } from "framer-motion";
+  <div class="cart" id="cart" style="display:none;">
+    <h2>🛍 Корзина</h2>
+    <ul id="cartItems"></ul>
+    <p id="total"></p>
+    <input type="text" id="clientName" placeholder="Ваше имя">
+    <input type="text" id="clientPhone" placeholder="Ваш номер телефона">
+    <button onclick="sendOrder()">📤 Оформить заказ в Telegram</button>
+  </div>
 
-const products = [
-  { name: "Motul 15W-40", price: 120000, brand: "REETGUARD" },
-  { name: "Motul 10W-40", price: 130000, brand: "REETGUARD" },
-  { name: "Motul 20W-50", price: 110000, brand: "REETGUARD" },
-  { name: "Motul 5W-30", price: 140000, brand: "REETGUARD" },
-  { name: "Motul 80W-90", price: 100000, brand: "REETGUARD" }
-];
+  <script>
+    const products = [
+      { name: "Motul 15W-40", price: 120000, brand: "REETGUARD" },
+      { name: "Motul 10W-40", price: 130000, brand: "REETGUARD" },
+      { name: "Motul 20W-50", price: 110000, brand: "REETGUARD" },
+      { name: "Motul 5W-30", price: 140000, brand: "REETGUARD" },
+      { name: "Motul 80W-90", price: 100000, brand: "REETGUARD" }
+    ];
 
-export default function Shop() {
-  const [cart, setCart] = useState([]);
+    const cart = [];
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
+    const productsContainer = document.getElementById('products');
+    const cartDiv = document.getElementById('cart');
+    const cartItems = document.getElementById('cartItems');
+    const totalDisplay = document.getElementById('total');
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+    products.forEach((product, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>${product.name}</h2>
+        <p>Бренд: ${product.brand}</p>
+        <p>Цена: ${product.price.toLocaleString()} сум</p>
+        <button onclick="addToCart(${index})">Добавить в корзину</button>
+      `;
+      productsContainer.appendChild(card);
+    });
 
-  const handleOrder = () => {
-    const message = `🛒 Новый заказ:\n${cart.map((item) => `• ${item.name} (${item.brand}) — ${item.price} сум`).join("\n")}\n\n💰 Общая сумма: ${total} сум\n📍 Адрес: Ташкент, ИНДЕКС\n📞 Тел: +998 (указать номер)\n📨 Telegram: @Baxa012394`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://t.me/share/url?url=&text=${encodedMessage}`, "_blank");
-  };
+    function addToCart(index) {
+      cart.push(products[index]);
+      renderCart();
+    }
 
-  return (
-    <div className="p-6 bg-[#0D1B2A] min-h-screen text-white">
-      <h1 className="text-3xl font-bold text-red-500 mb-6">Oil & Filter Shop | Uzbekistan</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((product, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <Card className="bg-[#1B263B] border border-red-600 rounded-2xl shadow-lg">
-              <CardContent className="p-4">
-                <h2 className="text-xl font-semibold text-red-400">{product.name}</h2>
-                <p className="text-sm text-gray-400">Бренд: {product.brand}</p>
-                <p className="mt-2 text-lg">{product.price.toLocaleString()} сум</p>
-                <Button
-                  onClick={() => addToCart(product)}
-                  className="mt-3 bg-red-600 hover:bg-red-700 text-white w-full"
-                >
-                  Добавить в корзину
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+    function renderCart() {
+      if (cart.length === 0) {
+        cartDiv.style.display = 'none';
+        return;
+      }
 
-      {cart.length > 0 && (
-        <div className="mt-8 p-4 bg-[#1B263B] rounded-xl border border-red-600">
-          <h2 className="text-2xl font-bold mb-4">🛍 Корзина</h2>
-          <ul className="mb-4 list-disc list-inside">
-            {cart.map((item, index) => (
-              <li key={index}>{item.name} — {item.price.toLocaleString()} сум</li>
-            ))}
-          </ul>
-          <p className="text-xl mb-4">💰 Общая сумма: {total.toLocaleString()} сум</p>
-          <Button onClick={handleOrder} className="bg-green-600 hover:bg-green-700 text-white w-full">
-            📤 Оформить заказ в Telegram
-          </Button>
-        </div>
-      )}
-    </div>
-  );
-}
+      cartDiv.style.display = 'block';
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} (${item.brand}) — ${item.price.toLocaleString()} сум`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+
+      totalDisplay.textContent = `💰 Общая сумма: ${total.toLocaleString()} сум`;
+    }
+
+    function sendOrder() {
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+
+      if (!name || !phone) {
+        alert("Пожалуйста, введите имя и номер телефона.");
+        return;
+      }
+
+      let message = `🛒 Новый заказ:\n👤 Имя: ${name}\n📞 Телефон клиента: ${phone}\n`;
+      cart.forEach(item => {
+        message += `• ${item.name} (${item.brand}) — ${item.price.toLocaleString()} сум\n`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      message += `\n💰 Общая сумма: ${total.toLocaleString()} сум`;
+      message += `\n📍 Адрес: Ташкент, ИНДЕКС`;
+      message += `\n📨 Telegram: @Baxa012394`;
+      message += `\n📞 Наш номер: +998959265094`;
+
+      const telegramLink = `https://t.me/share/url?url=&text=${encodeURIComponent(message)}`;
+      window.open(telegramLink, "_blank");
+    }
+  </script>
+</body>
+</html>
