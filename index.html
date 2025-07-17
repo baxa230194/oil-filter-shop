@@ -2,189 +2,133 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Oil & Filter Shop | Uzbekistan</title>
   <style>
     body {
-      background-color: #0D1B2A;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://i.imgur.com/WbHK2wZ.png'); /* Здесь фон: капля и фильтр */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
     }
+
+    .overlay-text {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      font-size: 100px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.08);
+      z-index: 0;
+      user-select: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     h1 {
-      color: #ff3b3b;
-      text-align: center;
+      color: #ffffff;
+    }
+
+    .contact {
       margin-bottom: 30px;
     }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background-color: #1B263B;
-      border: 1px solid #ff3b3b;
-      border-radius: 16px;
+
+    .product-card {
+      background-color: #fff;
+      color: #000;
       padding: 20px;
-      box-shadow: 0 0 10px #111;
+      margin-bottom: 20px;
+      border-radius: 10px;
     }
-    .card h2 {
-      color: #ff7b7b;
-    }
-    .card p {
-      margin: 5px 0;
-    }
+
     .btn {
-      background-color: #ff3b3b;
-      color: white;
+      background-color: #d32f2f;
+      color: #fff;
+      padding: 10px 15px;
       border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
     }
+
     .btn:hover {
-      background-color: #e03a3a;
-    }
-    .cart {
-      margin-top: 40px;
-      background-color: #1B263B;
-      border: 1px solid #ff3b3b;
-      padding: 20px;
-      border-radius: 16px;
-    }
-    input, textarea {
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px;
-      border-radius: 8px;
-      border: none;
-    }
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ff3b3b;
-      color: #ccc;
-      text-align: center;
-    }
-    a {
-      color: #ff7b7b;
-      text-decoration: none;
+      background-color: #b71c1c;
     }
   </style>
 </head>
 <body>
+  <div class="overlay-text">OIL & FILTER</div>
 
-  <h1>Oil & Filter Shop | Uzbekistan</h1>
+  <div class="container">
+    <h1>Oil & Filter Shop | Uzbekistan</h1>
+    <div class="contact">
+      <p><strong>Адрес:</strong> Ташкент, Сергели. Индекс</p>
+      <p><strong>Тел:</strong> +998 88 347 44 94</p>
+      <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" style="color:lightblue;">@Baxa012394</a></p>
+    </div>
 
-  <div class="product-grid" id="product-list"></div>
+    <h2>Масла MOTUL</h2>
+    <div class="product-card">
+      <h3>15W-40</h3>
+      <p>Бренд: MOTUL</p>
+      <p>Цена: 120 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>10W-40</h3>
+      <p>Бренд: MOTUL</p>
+      <p>Цена: 130 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>20W-50</h3>
+      <p>Бренд: MOTUL</p>
+      <p>Цена: 110 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>5W-30</h3>
+      <p>Бренд: MOTUL</p>
+      <p>Цена: 140 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
 
-  <div class="cart" id="cart-section" style="display:none;">
-    <h2>🛍 Корзина</h2>
-    <ul id="cart-items"></ul>
-    <p id="total-amount"></p>
-
-    <h3>📋 Данные заказчика</h3>
-    <input type="text" id="name" placeholder="Ваше имя" required />
-    <input type="text" id="phone" placeholder="Ваш номер телефона" required />
-    <textarea id="address" placeholder="Ваш адрес доставки" rows="3"></textarea>
-    <button class="btn" onclick="sendOrder()">📤 Оформить заказ</button>
+    <h2>Фильтры</h2>
+    <div class="product-card">
+      <h3>Fleetguard AF</h3>
+      <p>Бренд: Fleetguard</p>
+      <p>Цена: 80 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>Fleetguard FS</h3>
+      <p>Бренд: Fleetguard</p>
+      <p>Цена: 90 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>REETGUARD AF</h3>
+      <p>Бренд: REETGUARD</p>
+      <p>Цена: 85 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
+    <div class="product-card">
+      <h3>REETGUARD FS</h3>
+      <p>Бренд: REETGUARD</p>
+      <p>Цена: 95 000 сум</p>
+      <button class="btn">Добавить в корзину</button>
+    </div>
   </div>
-
-  <footer>
-    <p><strong>📞 Телефон:</strong> <a href="tel:+998883474494">+998 88 347 44 94</a></p>
-    <p><strong>📍 Адрес:</strong> Ташкент, Сергели. Индекс</p>
-    <p><strong>🔗 Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
-    <p style="margin-top: 10px; font-size: 0.9em;">&copy; 2025 Oil & Filter Shop | Uzbekistan</p>
-  </footer>
-
-  <script>
-    const products = [
-      // Масла Motul
-      { name: "Motul 15W-40", price: 120000, category: "Масло" },
-      { name: "Motul 10W-40", price: 130000, category: "Масло" },
-      { name: "Motul 20W-50", price: 110000, category: "Масло" },
-      { name: "Motul 5W-30", price: 140000, category: "Масло" },
-      { name: "Motul 80W-90", price: 100000, category: "Масло" },
-
-      // Fleetguard фильтры
-      { name: "Fleetguard LF", price: 85000, category: "Фильтр" },
-      { name: "Fleetguard FF", price: 79000, category: "Фильтр" },
-      { name: "Fleetguard FS", price: 72000, category: "Фильтр" },
-      { name: "Fleetguard AF", price: 88000, category: "Фильтр" },
-
-      // REETGUARD фильтры
-      { name: "REETGUARD LF", price: 75000, category: "Фильтр" },
-      { name: "REETGUARD FF", price: 70000, category: "Фильтр" },
-      { name: "REETGUARD FS", price: 69000, category: "Фильтр" },
-      { name: "REETGUARD AF", price: 85000, category: "Фильтр" }
-    ];
-
-    const cart = [];
-
-    function renderProducts() {
-      const productList = document.getElementById("product-list");
-      products.forEach((product, index) => {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `
-          <h2>${product.name}</h2>
-          <p>Категория: ${product.category}</p>
-          <p>Цена: ${product.price.toLocaleString()} сум</p>
-          <button class="btn" onclick="addToCart(${index})">Добавить в корзину</button>
-        `;
-        productList.appendChild(div);
-      });
-    }
-
-    function addToCart(index) {
-      cart.push(products[index]);
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartSection = document.getElementById("cart-section");
-      const cartItems = document.getElementById("cart-items");
-      const totalAmount = document.getElementById("total-amount");
-
-      if (cart.length === 0) {
-        cartSection.style.display = "none";
-        return;
-      }
-
-      cartSection.style.display = "block";
-      cartItems.innerHTML = "";
-      let total = 0;
-
-      cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.name} — ${item.price.toLocaleString()} сум`;
-        cartItems.appendChild(li);
-        total += item.price;
-      });
-
-      totalAmount.textContent = `💰 Общая сумма: ${total.toLocaleString()} сум`;
-    }
-
-    function sendOrder() {
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const address = document.getElementById("address").value.trim();
-
-      if (!name || !phone) {
-        alert("Пожалуйста, заполните имя и номер телефона");
-        return;
-      }
-
-      let message = `🛒 Новый заказ:\n${cart.map(i => `• ${i.name} — ${i.price} сум`).join("\n")}\n\n💰 Общая сумма: ${cart.reduce((s, i) => s + i.price, 0)} сум\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📍 Адрес: ${address}`;
-      let url = `https://t.me/share/url?url=&text=${encodeURIComponent(message)}`;
-
-      window.open(url, "_blank");
-    }
-
-    renderProducts();
-  </script>
-
 </body>
 </html>
