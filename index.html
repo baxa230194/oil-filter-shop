@@ -1,159 +1,71 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Oil & Filter Shop | Uzbekistan</title>
+  <meta charset="UTF-8" />
+  <title>Корзина заказа</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #0b1633;
+      background-color: #0e1a3a;
       color: white;
-      margin: 0;
-      padding: 0 20px;
+      font-family: sans-serif;
+      padding: 20px;
     }
-
-    h1 {
-      color: #ff4b4b;
-    }
-
-    .contact {
-      margin-bottom: 20px;
-    }
-
-    .product {
-      background-color: #1c2a4d;
-      padding: 15px;
+    input, textarea, button {
+      width: 100%;
       margin: 10px 0;
-      border-radius: 10px;
-    }
-
-    .product h3 {
-      margin: 0 0 10px;
-    }
-
-    .btn {
-      background-color: #ff4b4b;
-      color: white;
-      padding: 8px 15px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
       border: none;
-      border-radius: 6px;
+    }
+    button {
+      background-color: #e63946;
+      color: white;
       cursor: pointer;
     }
-
-    #cart {
-      margin-top: 30px;
-      background: #111d3a;
-      padding: 15px;
-      border-radius: 10px;
+    button:hover {
+      background-color: #d62828;
     }
-
-    textarea, input {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 5px;
-      border: none;
-    }
-
-    #response {
-      margin-top: 10px;
+    .cart-items {
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Oil & Filter Shop | Uzbekistan</h1>
+  <h2>Корзина</h2>
+  <ul id="cart-list" class="cart-items">
+    <li>REETGUARD AF</li>
+    <li>REETGUARD FS</li>
+    <li>Fleetguard AF</li>
+    <li>Fleetguard FS</li>
+  </ul>
 
-  <div class="contact">
-    <p><strong>Адрес:</strong> Ташкент</p>
-    <p><strong>Тел:</strong> +998 95 926 50 94</p>
-    <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" style="color:#00afff">@Baxa012394</a></p>
-  </div>
+  <input type="text" id="name" placeholder="Ваше имя" required />
+  <input type="tel" id="phone" placeholder="Телефон" required />
+  <textarea id="notes" placeholder="Комментарий или адрес доставки (необязательно)"></textarea>
 
-  <h2>Масла MOTUL</h2>
-  <div class="product"><h3>15W-40</h3><p>Бренд: MOTUL</p><p>Цена: 120 000 сум</p><button class="btn" onclick="addToCart('15W-40 - 120 000 сум')">Добавить в корзину</button></div>
-  <div class="product"><h3>10W-40</h3><p>Бренд: MOTUL</p><p>Цена: 130 000 сум</p><button class="btn" onclick="addToCart('10W-40 - 130 000 сум')">Добавить в корзину</button></div>
-  <div class="product"><h3>20W-50</h3><p>Бренд: MOTUL</p><p>Цена: 110 000 сум</p><button class="btn" onclick="addToCart('20W-50 - 110 000 сум')">Добавить в корзину</button></div>
-  <div class="product"><h3>5W-30</h3><p>Бренд: MOTUL</p><p>Цена: 140 000 сум</p><button class="btn" onclick="addToCart('5W-30 - 140 000 сум')">Добавить в корзину</button></div>
-  <div class="product"><h3>80W-90</h3><p>Бренд: MOTUL</p><p>Цена: 125 000 сум</p><button class="btn" onclick="addToCart('80W-90 - 125 000 сум')">Добавить в корзину</button></div>
-
-  <h2>Фильтры FLEETGUARD</h2>
-  <div class="product"><h3>LF</h3><p>Тип: Масляный фильтр</p><button class="btn" onclick="addToCart('Fleetguard LF')">Добавить в корзину</button></div>
-  <div class="product"><h3>FF</h3><p>Тип: Топливный фильтр</p><button class="btn" onclick="addToCart('Fleetguard FF')">Добавить в корзину</button></div>
-  <div class="product"><h3>FS</h3><p>Тип: Водосепаратор</p><button class="btn" onclick="addToCart('Fleetguard FS')">Добавить в корзину</button></div>
-  <div class="product"><h3>AF</h3><p>Тип: Воздушный фильтр</p><button class="btn" onclick="addToCart('Fleetguard AF')">Добавить в корзину</button></div>
-
-  <h2>Фильтры REETGUARD</h2>
-  <div class="product"><h3>LF</h3><p>Тип: Масляный фильтр</p><button class="btn" onclick="addToCart('REETGUARD LF')">Добавить в корзину</button></div>
-  <div class="product"><h3>FF</h3><p>Тип: Топливный фильтр</p><button class="btn" onclick="addToCart('REETGUARD FF')">Добавить в корзину</button></div>
-  <div class="product"><h3>FS</h3><p>Тип: Водосепаратор</p><button class="btn" onclick="addToCart('REETGUARD FS')">Добавить в корзину</button></div>
-  <div class="product"><h3>AF</h3><p>Тип: Воздушный фильтр</p><button class="btn" onclick="addToCart('REETGUARD AF')">Добавить в корзину</button></div>
-
-  <div id="cart">
-    <h2>Корзина</h2>
-    <ul id="cartItems"></ul>
-    <form id="orderForm">
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <input type="tel" name="phone" placeholder="Ваш номер телефона" required>
-      <textarea name="cart" id="cartText" readonly></textarea>
-      <button type="submit" class="btn">Оформить заказ</button>
-    </form>
-    <p id="response"></p>
-  </div>
+  <button onclick="sendOrder()">Оформить заказ</button>
 
   <script>
-    const cartItems = [];
-    const cartText = document.getElementById("cartText");
-    const cartList = document.getElementById("cartItems");
+    function sendOrder() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const notes = document.getElementById('notes').value.trim();
 
-    function addToCart(item) {
-      cartItems.push(item);
-      updateCartDisplay();
+      if (!name || !phone) {
+        alert("Пожалуйста, заполните имя и телефон");
+        return;
+      }
+
+      const items = Array.from(document.querySelectorAll("#cart-list li"))
+        .map(item => item.textContent)
+        .join(", ");
+
+      const message = `Новый заказ:%0AИмя: ${name}%0AТелефон: ${phone}%0AТовары: ${items}${notes ? `%0AКомментарий: ${notes}` : ""}`;
+
+      const telegramURL = `https://t.me/share/url?url=Заказ&text=${message}`;
+      window.open(telegramURL, '_blank');
     }
-
-    function updateCartDisplay() {
-      cartList.innerHTML = "";
-      cartItems.forEach(i => {
-        const li = document.createElement("li");
-        li.textContent = i;
-        cartList.appendChild(li);
-      });
-      cartText.value = cartItems.join("\n");
-    }
-
-    const form = document.getElementById("orderForm");
-    const response = document.getElementById("response");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = form.name.value;
-      const phone = form.phone.value;
-      const cart = form.cart.value;
-
-      const message = `\uD83D\uDED2 *Новый заказ!*\n\uD83D\uDC64 Имя: ${name}\n\uD83D\uDCDE Телефон: ${phone}\n\uD83D\uDECD Заказ:\n${cart}`;
-
-      fetch(`https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id: 'YOUR_CHAT_ID',
-          text: message,
-          parse_mode: "Markdown"
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        response.innerText = "✅ Заказ отправлен!";
-        form.reset();
-        cartItems.length = 0;
-        updateCartDisplay();
-      })
-      .catch(err => {
-        response.innerText = "❌ Ошибка при отправке заказа.";
-        console.error(err);
-      });
-    });
   </script>
 </body>
 </html>
