@@ -2,70 +2,169 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Корзина заказа</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oil & Filter Shop</title>
   <style>
     body {
-      background-color: #0e1a3a;
+      background-color: #0D1B2A;
       color: white;
       font-family: sans-serif;
+      margin: 0;
       padding: 20px;
     }
-    input, textarea, button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: none;
+
+    h1 {
+      color: #ff3b3b;
+      text-align: center;
     }
-    button {
-      background-color: #e63946;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #1B263B;
+      border: 1px solid #ff3b3b;
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .card h2 {
+      color: #ff7b7b;
+      margin-bottom: 5px;
+    }
+
+    .card button {
+      margin-top: 10px;
+      background: #ff3b3b;
       color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #d62828;
+
+    .cart {
+      margin-top: 30px;
+      background-color: #1B263B;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #ff3b3b;
     }
-    .cart-items {
-      margin-bottom: 20px;
+
+    input, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .send-btn {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>Корзина</h2>
-  <ul id="cart-list" class="cart-items">
-    <li>REETGUARD AF</li>
-    <li>REETGUARD FS</li>
-    <li>Fleetguard AF</li>
-    <li>Fleetguard FS</li>
-  </ul>
 
-  <input type="text" id="name" placeholder="Ваше имя" required />
-  <input type="tel" id="phone" placeholder="Телефон" required />
-  <textarea id="notes" placeholder="Комментарий или адрес доставки (необязательно)"></textarea>
+  <h1>Oil & Filter Shop | Uzbekistan</h1>
 
-  <button onclick="sendOrder()">Оформить заказ</button>
+  <div class="grid" id="product-list"></div>
+
+  <div class="cart" id="cart-section" style="display: none;">
+    <h2>🛒 Корзина</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>💰 Общая сумма:</strong> <span id="total-sum">0</span> сум</p>
+    <input type="text" id="name" placeholder="Ваше имя" required />
+    <input type="text" id="phone" placeholder="Номер телефона" required />
+    <textarea id="comment" placeholder="Комментарий (адрес, индекс и т.д.)"></textarea>
+    <button class="send-btn" onclick="sendOrder()">📤 Оформить заказ через Telegram</button>
+  </div>
 
   <script>
+    const products = [
+      { name: "Motul 15W-40", price: 120000, brand: "MOTUL" },
+      { name: "Motul 10W-40", price: 130000, brand: "MOTUL" },
+      { name: "Motul 20W-50", price: 110000, brand: "MOTUL" },
+      { name: "Motul 5W-30", price: 140000, brand: "MOTUL" },
+      { name: "Motul 80W-90", price: 100000, brand: "MOTUL" },
+      { name: "Fleetguard LF фильтр", price: 90000, brand: "FLEETGUARD" },
+      { name: "Fleetguard FF фильтр", price: 95000, brand: "FLEETGUARD" },
+      { name: "Fleetguard FS фильтр", price: 98000, brand: "FLEETGUARD" },
+      { name: "Fleetguard AF фильтр", price: 105000, brand: "FLEETGUARD" },
+      { name: "REETGUARD LF фильтр", price: 85000, brand: "REETGUARD" },
+      { name: "REETGUARD FF фильтр", price: 87000, brand: "REETGUARD" },
+      { name: "REETGUARD FS фильтр", price: 89000, brand: "REETGUARD" },
+      { name: "REETGUARD AF фильтр", price: 91000, brand: "REETGUARD" }
+    ];
+
+    const cart = [];
+
+    function renderProducts() {
+      const container = document.getElementById("product-list");
+      products.forEach((product, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h2>${product.name}</h2>
+          <p>Бренд: ${product.brand}</p>
+          <p>Цена: ${product.price.toLocaleString()} сум</p>
+          <button onclick="addToCart(${index})">Добавить в корзину</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function addToCart(index) {
+      cart.push(products[index]);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartSection = document.getElementById("cart-section");
+      const cartItems = document.getElementById("cart-items");
+      const totalSum = document.getElementById("total-sum");
+      cartSection.style.display = "block";
+
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} — ${item.price.toLocaleString()} сум`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+
+      totalSum.textContent = total.toLocaleString();
+    }
+
     function sendOrder() {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const notes = document.getElementById('notes').value.trim();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const comment = document.getElementById("comment").value.trim();
 
       if (!name || !phone) {
-        alert("Пожалуйста, заполните имя и телефон");
+        alert("Пожалуйста, введите имя и номер телефона.");
         return;
       }
 
-      const items = Array.from(document.querySelectorAll("#cart-list li"))
-        .map(item => item.textContent)
-        .join(", ");
-
-      const message = `Новый заказ:%0AИмя: ${name}%0AТелефон: ${phone}%0AТовары: ${items}${notes ? `%0AКомментарий: ${notes}` : ""}`;
-
-      const telegramURL = `https://t.me/share/url?url=Заказ&text=${message}`;
-      window.open(telegramURL, '_blank');
+      const orderItems = cart.map(item => `• ${item.name} (${item.brand}) — ${item.price} сум`).join("%0A");
+      const message = `🛒 Новый заказ:%0A${orderItems}%0A%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📝 Комментарий: ${comment}`;
+      const telegramURL = `https://t.me/share/url?url=&text=${message}`;
+      window.open(telegramURL, "_blank");
     }
+
+    renderProducts();
   </script>
 </body>
 </html>
