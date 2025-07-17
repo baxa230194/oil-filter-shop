@@ -37,12 +37,13 @@
     }
     .item {
       background: #132a44;
-      padding: 15px;
+      padding: 10px;
       border-radius: 8px;
       border-left: 5px solid #8b0000;
       flex: 1 1 calc(45% - 20px);
       cursor: pointer;
       transition: background 0.3s ease;
+      font-size: 14px;
     }
     .item:hover {
       background: #1f3d5a;
@@ -98,32 +99,92 @@
   <header>Oil & Filter Shop | Uzbekistan</header>
   <div class="container">
 
-    <h2>Фильтры Fleetguard (дополненные)</h2>
+    <h2>Масла MOTUL</h2>
     <div class="item-list">
-      <div class="item" onclick="addToCart('LF777 – Масляный фильтр', 30000)">LF777 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF670 – Масляный фильтр', 30000)">LF670 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF9325 – Масляный фильтр', 30000)">LF9325 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF16006 – Масляный фильтр', 30000)">LF16006 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF747 – Масляный фильтр', 30000)">LF747 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS1212 – Топливный сепаратор', 30000)">FS1212 – Топливный сепаратор – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF9050 – Масляный фильтр', 30000)">LF9050 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS1006 – Топливный сепаратор', 30000)">FS1006 – Топливный сепаратор – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FF63040N – Топливный фильтр', 30000)">FF63040N – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('SN70447 – Топливный фильтр', 30000)">SN70447 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FF5611 – Топливный фильтр', 30000)">FF5611 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS19914 – Топливный сепаратор', 30000)">FS19914 – Топливный сепаратор – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS0109800MX – Топливный сепаратор', 30000)">FS0109800MX – Топливный сепаратор – 30,000 сум</div>
-      <div class="item" onclick="addToCart('HF35255 – Гидравлический фильтр', 30000)">HF35255 – Гидравлический фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('HF28813 – Гидравлический фильтр', 30000)">HF28813 – Гидравлический фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF9018 – Масляный фильтр', 30000)">LF9018 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FF202 – Топливный фильтр', 30000)">FF202 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS19946 – Топливный фильтр', 30000)">FS19946 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FF5856 – Топливный фильтр', 30000)">FF5856 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('HF35504 – Гидравлический фильтр', 30000)">HF35504 – Гидравлический фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('HF6319 – Гидравлический фильтр', 30000)">HF6319 – Гидравлический фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('AF25627 – Воздушный фильтр', 30000)">AF25627 – Воздушный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('MOTUL 15W-40', 47000)">15W-40 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('MOTUL 10W-40', 47000)">10W-40 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('MOTUL 20W-50', 47000)">20W-50 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('MOTUL 5W-30', 47000)">5W-30 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('MOTUL 80W-90', 47000)">80W-90 – 47,000 сум/л</div>
     </div>
 
+    <h2>Фильтры Fleetguard</h2>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('Fleetguard LF777', 30000)">LF777 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Fleetguard FF63040N', 30000)">FF63040N – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Fleetguard FS19946', 30000)">FS19946 – Сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Fleetguard AF25627', 30000)">AF25627 – Воздушный фильтр – 30,000 сум</div>
+      <!-- Добавлены позиции с изображений -->
+      <div class="item" onclick="addToCart('Fleetguard LF9325', 30000)">LF9325 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Fleetguard FS1212', 30000)">FS1212 – Сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Fleetguard HF35255', 30000)">HF35255 – Гидравлический фильтр – 30,000 сум</div>
+    </div>
+
+    <h2>Фильтры Reetguard</h2>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('Reetguard LF3625', 30000)">LF3625 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Reetguard FF5272', 30000)">FF5272 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Reetguard FS19769', 30000)">FS19769 – Сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('Reetguard C26106', 30000)">C26106 – Воздушный фильтр – 30,000 сум</div>
+    </div>
+
+    <div class="cart">
+      <h2>🛒 Корзина заказа</h2>
+      <ul id="cart-list"></ul>
+      <p><strong>Общая сумма:</strong> <span id="total-price">0</span> сум</p>
+    </div>
+
+    <form onsubmit="sendToTelegram(); return false;">
+      <label for="name">Ваше имя:</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Номер телефона:</label>
+      <input type="text" id="phone" required>
+
+      <label for="order">Дополнительно (комментарий):</label>
+      <textarea id="order" rows="4"></textarea>
+
+      <button type="submit">Отправить заказ через Telegram</button>
+    </form>
+
+    <h2>Контакты</h2>
+    <p>📍 Адрес: Ташкент, Сергели</p>
+    <p>📞 Телефон: +998 88 347 44 94</p>
+    <p>📧 Email: oilfiltershop@uzbekistan.uz</p>
+    <p>💬 Telegram: <a href="https://t.me/Baxa012394" target="_blank">@Baxa012394</a></p>
   </div>
+  <footer>
+    © 2025 Oil & Filter Shop Uzbekistan. Все права защищены.
+  </footer>
+
+  <script>
+    const cart = [];
+    let total = 0;
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      total += price;
+
+      const list = document.getElementById('cart-list');
+      const li = document.createElement('li');
+      li.textContent = `${item} – ${price.toLocaleString()} сум`;
+      list.appendChild(li);
+
+      document.getElementById('total-price').textContent = total.toLocaleString();
+    }
+
+    function sendToTelegram() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const comment = document.getElementById('order').value;
+
+      let orderItems = cart.map(c => `🔹 ${c.item} – ${c.price.toLocaleString()} сум`).join('%0A');
+      let message = `🛒 Новый заказ:%0A👤 Имя: ${name}%0A📞 Тел: ${phone}%0A${orderItems}%0A💵 Итого: ${total.toLocaleString()} сум%0A💬 Комментарий: ${comment}`;
+
+      const telegramUsername = 'Baxa012394';
+      const url = `https://t.me/${telegramUsername}?text=${message}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
