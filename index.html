@@ -8,36 +8,47 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #0b1f3a;
-      color: white;
+      background-color: #0a1b2e;
+      color: #f4f4f4;
     }
     header {
-      background-color: #d62828;
+      background-color: #8b0000;
       padding: 20px;
       text-align: center;
       font-size: 28px;
       font-weight: bold;
+      color: #ffffff;
     }
-    .section {
-      padding: 30px 20px;
-      max-width: 800px;
+    .container {
+      max-width: 1000px;
       margin: auto;
+      padding: 20px;
     }
     h2 {
       color: #ffffff;
-      border-bottom: 2px solid #d62828;
+      border-bottom: 2px solid #8b0000;
       padding-bottom: 5px;
       margin-top: 40px;
     }
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
     .item {
-      background: #132d4e;
-      margin: 10px 0;
-      padding: 10px;
+      background: #132a44;
+      padding: 15px;
       border-radius: 8px;
-      border-left: 5px solid #d62828;
+      border-left: 5px solid #8b0000;
+      flex: 1 1 calc(50% - 20px);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .item:hover {
+      background: #1f3d5a;
     }
     form {
-      background-color: #132d4e;
+      background-color: #1c2f45;
       padding: 20px;
       border-radius: 8px;
       margin-top: 30px;
@@ -49,13 +60,13 @@
     input, textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #d62828;
+      border: 1px solid #8b0000;
       border-radius: 5px;
-      background-color: #0b1f3a;
+      background-color: #0a1b2e;
       color: white;
     }
     button {
-      background-color: #d62828;
+      background-color: #8b0000;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -63,52 +74,59 @@
       cursor: pointer;
       border-radius: 5px;
     }
+    .cart {
+      background-color: #0f2235;
+      border: 1px solid #8b0000;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      background-color: #132d4e;
+      background-color: #132a44;
       color: #ccc;
+      margin-top: 50px;
     }
     a {
-      color: #f77;
+      color: #ff6666;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    Oil & Filter Shop | Uzbekistan
-  </header>
-
-  <!-- Категория масел -->
-  <div class="section">
+  <header>Oil & Filter Shop | Uzbekistan</header>
+  <div class="container">
     <h2>Масла MOTUL</h2>
-    <div class="item">15W-40</div>
-    <div class="item">10W-40</div>
-    <div class="item">20W-50</div>
-    <div class="item">5W-30</div>
-    <div class="item">80W-90</div>
-  </div>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('Масло MOTUL 15W-40')">15W-40</div>
+      <div class="item" onclick="addToCart('Масло MOTUL 10W-40')">10W-40</div>
+      <div class="item" onclick="addToCart('Масло MOTUL 20W-50')">20W-50</div>
+      <div class="item" onclick="addToCart('Масло MOTUL 5W-30')">5W-30</div>
+      <div class="item" onclick="addToCart('Масло MOTUL 80W-90')">80W-90</div>
+    </div>
 
-  <!-- Категория фильтров -->
-  <div class="section">
     <h2>Фильтры Fleetguard</h2>
-    <div class="item">LF – масляные фильтры</div>
-    <div class="item">FF – топливные фильтры</div>
-    <div class="item">FS – водоотделяющие фильтры</div>
-    <div class="item">AF – воздушные фильтры</div>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('Fleetguard LF777 – масляный фильтр')">LF</div>
+      <div class="item" onclick="addToCart('Fleetguard FF63040N – топливный фильтр')">FF</div>
+      <div class="item" onclick="addToCart('Fleetguard FS19946 – сепаратор')">FS</div>
+      <div class="item" onclick="addToCart('Fleetguard AF55727 – воздушный фильтр')">AF</div>
+    </div>
 
     <h2>Фильтры REETGUARD</h2>
-    <div class="item">LF – масляные фильтры</div>
-    <div class="item">FF – топливные фильтры</div>
-    <div class="item">FS – водоотделяющие фильтры</div>
-    <div class="item">AF – воздушные фильтры</div>
-  </div>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('REETGUARD LF3625 – масляный фильтр')">LF</div>
+      <div class="item" onclick="addToCart('REETGUARD FF5272 – топливный фильтр')">FF</div>
+      <div class="item" onclick="addToCart('REETGUARD FS19769 – сепаратор')">FS</div>
+      <div class="item" onclick="addToCart('REETGUARD C26106 – воздушный фильтр')">AF</div>
+    </div>
 
-  <!-- Корзина заказа -->
-  <div class="section">
-    <h2>🛒 Корзина заказа</h2>
+    <div class="cart">
+      <h2>🛒 Корзина заказа</h2>
+      <ul id="cart-list"></ul>
+    </div>
+
     <form onsubmit="sendToTelegram(); return false;">
       <label for="name">Ваше имя:</label>
       <input type="text" id="name" required>
@@ -116,41 +134,42 @@
       <label for="phone">Номер телефона:</label>
       <input type="text" id="phone" required>
 
-      <label for="order">Что вы хотите заказать?</label>
-      <textarea id="order" rows="4" placeholder="Укажите название масла или фильтра" required></textarea>
+      <label for="order">Дополнительно (комментарий):</label>
+      <textarea id="order" rows="4"></textarea>
 
-      <button type="submit">Отправить заказ через Telegram</button>
+      <button type="submit">Отправить заказ</button>
     </form>
-  </div>
 
-  <!-- Контакты -->
-  <div class="section">
     <h2>Контакты</h2>
-    <p>📍 Адрес: Ташкент, Сергели, Узбекистан</p>
+    <p>📍 Адрес: Ташкент, Сергели</p>
     <p>📞 Телефон: +998 88 347 44 94</p>
     <p>📧 Email: oilfiltershop@uzbekistan.uz</p>
     <p>💬 Telegram: <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
   </div>
-
   <footer>
     © 2025 Oil & Filter Shop Uzbekistan. Все права защищены.
   </footer>
-
-  <!-- JS Telegram -->
   <script>
+    const cart = [];
+    function addToCart(item) {
+      cart.push(item);
+      const list = document.getElementById('cart-list');
+      const li = document.createElement('li');
+      li.textContent = item;
+      list.appendChild(li);
+    }
+
     function sendToTelegram() {
       const name = document.getElementById('name').value;
       const phone = document.getElementById('phone').value;
-      const order = document.getElementById('order').value;
+      const orderText = document.getElementById('order').value;
+      const items = cart.join('%0A');
 
-      const message = `Здравствуйте!%0AХочу оформить заказ:%0A👤 Имя: ${encodeURIComponent(name)}%0A📞 Телефон: ${encodeURIComponent(phone)}%0A🛍️ Заказ: ${encodeURIComponent(order)}`;
-
+      const message = `🛒 Новый заказ:%0A👤 Имя: ${name}%0A📞 Тел: ${phone}%0A🧾 Товары:%0A${items}%0A💬 Комментарий: ${orderText}`;
       const telegramUsername = 'Baxa012394';
       const url = `https://t.me/${telegramUsername}?text=${message}`;
-
       window.open(url, '_blank');
     }
   </script>
-
 </body>
 </html>
