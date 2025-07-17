@@ -1,201 +1,77 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oil & Filter Shop | MOTUL</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1b2a;
-      color: #f1f1f1;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #0a1523;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #132743;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 10px;
-      display: block;
-    }
-    nav a:hover {
-      background: #e63946;
-      border-radius: 5px;
-    }
-    main {
-      padding: 20px;
-    }
-    h2 {
-      margin-top: 40px;
-    }
-    .product {
-      background: #1b263b;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-      padding: 15px;
-      margin: 10px 0;
-    }
-    .product h3 {
-      margin: 0 0 10px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #e63946;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: #d62828;
-    }
-    .cart {
-      margin-top: 30px;
-      background: #1b263b;
-      padding: 15px;
-      border-radius: 10px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    footer {
-      background: #132743;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #ccc;
-    }
-    footer a {
-      color: #e63946;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Oil & Filter Shop</h1>
-    <p>Поставщик качественных фильтров для спецтехники, грузовиков, сельхоз и промышленного оборудования</p>
-    <p>Масла MOTUL и фильтры — закажи через Telegram</p>
-  </header>
+// Улучшенный сайт для продажи масел и фильтров с брендом REETGUARD
 
-  <nav>
-    <a href="#oils">Масла</a>
-    <a href="#filters">Фильтры</a>
-    <a href="#grease">Пищевые смазки</a>
-    <a href="#contacts">Контакты</a>
-  </nav>
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ShoppingCart } from "lucide-react";
+import { motion } from "framer-motion";
 
-  <main>
-    <input type="text" id="searchInput" placeholder="🔍 Поиск по бренду..." oninput="filterProducts()" />
+const products = [
+  { name: "Motul 15W-40", price: 120000, brand: "REETGUARD" },
+  { name: "Motul 10W-40", price: 130000, brand: "REETGUARD" },
+  { name: "Motul 20W-50", price: 110000, brand: "REETGUARD" },
+  { name: "Motul 5W-30", price: 140000, brand: "REETGUARD" },
+  { name: "Motul 80W-90", price: 100000, brand: "REETGUARD" }
+];
 
-    <h2 id="oils">🛢 Масла MOTUL</h2>
-    <h3>Двигательные масла</h3>
-    <div class="product"><h3>MOTUL 15W-40</h3><p>Минеральное масло для дизельных двигателей спецтехники</p><button class="btn" onclick="addToCart('MOTUL 15W-40')">Добавить в корзину</button></div>
-    <div class="product"><h3>MOTUL 10W-40</h3><p>Полусинтетика для дизелей и бензина</p><button class="btn" onclick="addToCart('MOTUL 10W-40')">Добавить в корзину</button></div>
-    <div class="product"><h3>MOTUL 20W-50</h3><p>Масло для старых и грузовых двигателей</p><button class="btn" onclick="addToCart('MOTUL 20W-50')">Добавить в корзину</button></div>
-    <div class="product"><h3>MOTUL 5W-30</h3><p>Синтетика для современных легковых автомобилей</p><button class="btn" onclick="addToCart('MOTUL 5W-30')">Добавить в корзину</button></div>
+export default function Shop() {
+  const [cart, setCart] = useState([]);
 
-    <h3>Трансмиссионные масла</h3>
-    <div class="product"><h3>MOTUL Gear 80W-90</h3><p>Трансмиссионное масло для мостов и КПП</p><button class="btn" onclick="addToCart('MOTUL Gear 80W-90')">Добавить в корзину</button></div>
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
 
-    <h2 id="filters">🧰 Фильтры</h2>
-    <h3>Масляные фильтры</h3>
-    <div class="product"><h3>Fleetguard LF777</h3><p>Масляный фильтр для дизельных двигателей</p><button class="btn" onclick="addToCart('Fleetguard LF777')">Добавить в корзину</button></div>
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-    <h3>Топливные фильтры</h3>
-    <div class="product"><h3>Baldwin BF1212</h3><p>Топливный фильтр для грузовиков и тракторов</p><button class="btn" onclick="addToCart('Baldwin BF1212')">Добавить в корзину</button></div>
+  const handleOrder = () => {
+    const message = `🛒 Новый заказ:\n${cart.map((item) => `• ${item.name} (${item.brand}) — ${item.price} сум`).join("\n")}\n\n💰 Общая сумма: ${total} сум\n📍 Адрес: Ташкент, ИНДЕКС\n📞 Тел: +998 (указать номер)\n📨 Telegram: @Baxa012394`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://t.me/share/url?url=&text=${encodedMessage}`, "_blank");
+  };
 
-    <h3>Воздушные фильтры</h3>
-    <div class="product"><h3>Donaldson P181126</h3><p>Воздушный фильтр для спецтехники</p><button class="btn" onclick="addToCart('Donaldson P181126')">Добавить в корзину</button></div>
+  return (
+    <div className="p-6 bg-[#0D1B2A] min-h-screen text-white">
+      <h1 className="text-3xl font-bold text-red-500 mb-6">Oil & Filter Shop | Uzbekistan</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {products.map((product, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <Card className="bg-[#1B263B] border border-red-600 rounded-2xl shadow-lg">
+              <CardContent className="p-4">
+                <h2 className="text-xl font-semibold text-red-400">{product.name}</h2>
+                <p className="text-sm text-gray-400">Бренд: {product.brand}</p>
+                <p className="mt-2 text-lg">{product.price.toLocaleString()} сум</p>
+                <Button
+                  onClick={() => addToCart(product)}
+                  className="mt-3 bg-red-600 hover:bg-red-700 text-white w-full"
+                >
+                  Добавить в корзину
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
 
-    <h2 id="grease">🧴 Пищевые смазки MOTUL</h2>
-    <div class="product"><h3>MOTUL FG 400</h3><p>Для цепей и транспортеров на пищевом производстве</p><button class="btn" onclick="addToCart('MOTUL FG 400')">Добавить в корзину</button></div>
-    <div class="product"><h3>MOTUL FG 600</h3><p>Высокотемпературная смазка для подшипников</p><button class="btn" onclick="addToCart('MOTUL FG 600')">Добавить в корзину</button></div>
-    <div class="product"><h3>MOTUL FG Grease</h3><p>Универсальная пищевая смазка, сертифицирована NSF H1</p><button class="btn" onclick="addToCart('MOTUL FG Grease')">Добавить в корзину</button></div>
-
-    <div class="cart">
-      <h2>🛒 Корзина</h2>
-      <ul id="cartList"></ul>
-      <input type="text" id="clientName" placeholder="Ваше имя" />
-      <input type="text" id="clientPhone" placeholder="Телефон (+998...)" />
-      <button class="btn" style="margin-top:10px" onclick="orderNow()">Заказать в Telegram</button>
+      {cart.length > 0 && (
+        <div className="mt-8 p-4 bg-[#1B263B] rounded-xl border border-red-600">
+          <h2 className="text-2xl font-bold mb-4">🛍 Корзина</h2>
+          <ul className="mb-4 list-disc list-inside">
+            {cart.map((item, index) => (
+              <li key={index}>{item.name} — {item.price.toLocaleString()} сум</li>
+            ))}
+          </ul>
+          <p className="text-xl mb-4">💰 Общая сумма: {total.toLocaleString()} сум</p>
+          <Button onClick={handleOrder} className="bg-green-600 hover:bg-green-700 text-white w-full">
+            📤 Оформить заказ в Telegram
+          </Button>
+        </div>
+      )}
     </div>
-  </main>
-
-  <footer id="contacts">
-    <h3>📞 Контакты</h3>
-    <p>Телефон: +998 95 926-50-94</p>
-    <p>Telegram: <a href="https://t.me/Baxa012394" target="_blank">@Baxa012394</a></p>
-    <p>Адрес: Ташкент, ул. Автозапчастей, 10</p>
-    <p>© 2025 Oil & Filter Shop</p>
-  </footer>
-
-  <script>
-    const cart = [];
-
-    function addToCart(item) {
-      cart.push(item);
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartList = document.getElementById("cartList");
-      cartList.innerHTML = "";
-      cart.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        cartList.appendChild(li);
-      });
-    }
-
-    function orderNow() {
-      const name = document.getElementById("clientName").value.trim();
-      const phone = document.getElementById("clientPhone").value.trim();
-
-      if (!name || !phone) {
-        alert("Пожалуйста, введите имя и телефон.");
-        return;
-      }
-
-      const message = encodeURIComponent(
-        "🛒 Новый заказ:\n" +
-        "Имя: " + name + "\n" +
-        "Телефон: " + phone + "\n" +
-        "Товары:\n- " + cart.join("\n- ")
-      );
-
-      const telegramLink = `https://t.me/Baxa012394?text=${message}`;
-      window.open(telegramLink, "_blank");
-    }
-
-    function filterProducts() {
-      const query = document.getElementById("searchInput").value.toLowerCase();
-      const products = document.querySelectorAll(".product");
-
-      products.forEach((product) => {
-        const title = product.querySelector("h3").textContent.toLowerCase();
-        product.style.display = title.includes(query) ? "block" : "none";
-      });
-    }
-  </script>
-</body>
-</html>
+  );
+}
