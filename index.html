@@ -1,122 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oil & Filter Shop | Uzbekistan</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #0a1f44;
-      color: white;
-      background-image: url('https://i.imgur.com/OQ0rSRI.png'); /* Капля и фильтр (можно заменить) */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      color: #ffffff;
     }
 
     header {
-      background-color: #d60000;
+      background-color: #b30000;
       padding: 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 2em;
     }
 
-    .watermark {
-      position: absolute;
-      top: 40%;
-      left: 20%;
-      font-size: 80px;
-      color: rgba(255, 255, 255, 0.05);
-      transform: rotate(-15deg);
-      z-index: 0;
+    nav {
+      background-color: #111;
+      padding: 10px;
+      text-align: center;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 40px;
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 30px;
     }
 
     h2 {
-      color: #ff3c3c;
-      border-bottom: 2px solid #ff3c3c;
+      border-bottom: 2px solid #b30000;
       padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     ul {
-      list-style-type: square;
-      padding-left: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 5px 0;
+      background-color: #13294b;
+      padding: 10px;
+      border-left: 4px solid #b30000;
     }
 
     form {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: #13294b;
       padding: 20px;
       border-radius: 8px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
-    input, textarea {
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
+      margin-bottom: 15px;
       border: none;
       border-radius: 4px;
-      font-size: 16px;
     }
 
-    input[type="submit"] {
-      background-color: #ff3c3c;
+    button {
+      background-color: #b30000;
       color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
       cursor: pointer;
     }
 
-    footer {
-      background-color: #111c3a;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #ccc;
+    button:hover {
+      background-color: #8b0000;
     }
 
-    a {
-      color: #ff3c3c;
-      text-decoration: none;
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <div class="watermark">OIL & FILTER</div>
-
   <header>
     <h1>Oil & Filter Shop | Uzbekistan</h1>
-    <p>Продажа фильтров и масел MOTUL</p>
   </header>
 
-  <div class="container">
-    <h2>Категории фильтров</h2>
+  <nav>
+    <a href="#filters">Фильтры</a>
+    <a href="#oils">Масла</a>
+    <a href="#order">Заказ</a>
+    <a href="#contact">Контакты</a>
+  </nav>
 
-    <h3>Fleetguard</h3>
+  <section id="filters">
+    <h2>Фильтры Fleetguard / REETGUARD</h2>
     <ul>
-      <li>LF — Масляные фильтры</li>
-      <li>FF — Топливные фильтры</li>
-      <li>FS — Сепараторы</li>
-      <li>AF — Воздушные фильтры</li>
+      <li>LF - Масляные фильтры</li>
+      <li>FF - Топливные фильтры</li>
+      <li>FS - Сепараторы воды и топлива</li>
+      <li>AF - Воздушные фильтры</li>
     </ul>
+  </section>
 
-    <h3>REETGUARD</h3>
-    <ul>
-      <li>LF — Масляные фильтры</li>
-      <li>FF — Топливные фильтры</li>
-      <li>FS — Сепараторы</li>
-      <li>AF — Воздушные фильтры</li>
-    </ul>
-
+  <section id="oils">
     <h2>Масла MOTUL</h2>
     <ul>
       <li>MOTUL 15W-40</li>
@@ -125,30 +131,46 @@
       <li>MOTUL 5W-30</li>
       <li>MOTUL 80W-90</li>
     </ul>
+  </section>
 
-    <h2>Оформление заказа</h2>
-    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
-      <label>Имя и фамилия:</label>
-      <input type="text" name="name" required>
+  <section id="order">
+    <h2>Форма заказа</h2>
+    <form action="https://t.me/Baxa012394" method="get" target="_blank">
+      <label for="name">Имя</label>
+      <input type="text" id="name" name="name" required />
 
-      <label>Телефон:</label>
-      <input type="text" name="phone" required>
+      <label for="phone">Номер телефона</label>
+      <input type="text" id="phone" name="phone" required />
 
-      <label>Что вы хотите заказать:</label>
-      <textarea name="order" rows="4" required></textarea>
+      <label for="product">Выберите товар</label>
+      <select id="product" name="product">
+        <option value="LF">Фильтр LF</option>
+        <option value="FF">Фильтр FF</option>
+        <option value="FS">Фильтр FS</option>
+        <option value="AF">Фильтр AF</option>
+        <option value="motul15w40">MOTUL 15W-40</option>
+        <option value="motul5w30">MOTUL 5W-30</option>
+      </select>
 
-      <input type="submit" value="Оформить заказ">
+      <label for="message">Комментарий</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Отправить заказ в Telegram</button>
     </form>
+  </section>
 
-    <h2>Контакты</h2>
-    <p><strong>Основной телефон:</strong> <a href="tel:+998959265094">+998 95 926 50 94</a></p>
-    <p><strong>Общий контакт:</strong> <a href="tel:+998883474494">+998 88 347 44 94</a></p>
-    <p><strong>Адрес:</strong> Ташкент, Сергели. Индекс</p>
-    <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
-  </div>
+  <section id="contact">
+    <h2>Контактная информация</h2>
+    <ul>
+      <li><strong>Телефон:</strong> +998 88 347 44 94 / +998 95 926 50 94</li>
+      <li><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" target="_blank" style="color: #ff5555;">@Baxa012394</a></li>
+      <li><strong>Адрес:</strong> г. Ташкент, Сергели</li>
+      <li><strong>Почтовый индекс:</strong> 100088</li>
+    </ul>
+  </section>
 
   <footer>
-    &copy; 2025 Oil & Filter Shop. Все права защищены.
+    © 2025 Oil & Filter Shop | Uzbekistan — Все права защищены.
   </footer>
 
 </body>
