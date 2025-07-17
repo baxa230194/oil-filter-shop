@@ -1,99 +1,141 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oil & Filter Shop | Uzbekistan</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0b1f3a;
+      color: white;
+    }
+    header {
+      background-color: #d62828;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .section {
+      padding: 30px 20px;
+    }
+    h2 {
+      color: #ffffff;
+      border-bottom: 2px solid #d62828;
+      padding-bottom: 5px;
+    }
+    .item {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #d62828;
+      border-radius: 8px;
+    }
+    form {
+      background-color: #132d4e;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d62828;
+      border-radius: 5px;
+      background-color: #0b1f3a;
+      color: white;
+    }
+    button {
+      background-color: #d62828;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: #132d4e;
+      color: #ccc;
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-blue-900 text-white">
-  <header class="p-6 bg-blue-800 text-center text-white text-3xl font-bold">
-    OIL & FILTER SHOP | UZBEKISTAN
+  <header>
+    Oil & Filter Shop | Uzbekistan
   </header>
 
-  <section class="text-center p-4">
-    <h2 class="text-2xl mb-4 font-semibold text-red-500">Контакты</h2>
-    <p>📞 Телефон: +998 88 347 44 94</p>
-    <p>📍 Адрес: Ташкент, Сергели. Индекс</p>
-    <p>Telegram: <a href="https://t.me/Baxa012394" class="text-red-400 underline">@Baxa012394</a></p>
-  </section>
-
-  <main class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-    <!-- Масла -->
-    <div class="bg-blue-800 p-4 rounded-xl">
-      <h2 class="text-xl font-bold text-red-400 mb-2">Motul Масла</h2>
-      <ul class="list-disc pl-6">
-        <li>Motul 15W-40 <button onclick="openOrderForm('Motul 15W-40')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>Motul 10W-40 <button onclick="openOrderForm('Motul 10W-40')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>Motul 20W-50 <button onclick="openOrderForm('Motul 20W-50')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>Motul 5W-30 <button onclick="openOrderForm('Motul 5W-30')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>Motul 80W-90 <button onclick="openOrderForm('Motul 80W-90')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-      </ul>
-    </div>
-
-    <!-- Фильтры -->
-    <div class="bg-blue-800 p-4 rounded-xl">
-      <h2 class="text-xl font-bold text-red-400 mb-2">Фильтры Fleetguard / Reetguard</h2>
-      <ul class="list-disc pl-6">
-        <li>LF (масляные) <button onclick="openOrderForm('Фильтр LF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>FF (топливные) <button onclick="openOrderForm('Фильтр FF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>FS (сепараторы) <button onclick="openOrderForm('Фильтр FS')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-        <li>AF (воздушные) <button onclick="openOrderForm('Фильтр AF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
-      </ul>
-    </div>
-  </main>
-
-  <!-- Модальное окно заказа -->
-  <div id="orderModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-    <div class="bg-white text-black rounded-xl p-6 w-full max-w-md">
-      <h2 class="text-xl font-bold mb-4">Оформление заказа</h2>
-      <form id="orderForm">
-        <label class="block mb-2">Ваше имя</label>
-        <input type="text" id="customerName" required class="w-full p-2 border rounded mb-3">
-
-        <label class="block mb-2">Телефон</label>
-        <input type="tel" id="customerPhone" required class="w-full p-2 border rounded mb-3">
-
-        <label class="block mb-2">Товар</label>
-        <input type="text" id="productName" readonly class="w-full p-2 border rounded mb-3">
-
-        <label class="block mb-2">Комментарий</label>
-        <textarea id="customerComment" class="w-full p-2 border rounded mb-4"></textarea>
-
-        <div class="flex justify-between">
-          <button type="button" onclick="closeOrderForm()" class="text-red-600">Отмена</button>
-          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Отправить</button>
-        </div>
-      </form>
-    </div>
+  <div class="section">
+    <h2>Масла MOTUL</h2>
+    <div class="item">15W-40</div>
+    <div class="item">10W-40</div>
+    <div class="item">20W-50</div>
+    <div class="item">5W-30</div>
+    <div class="item">80W-90</div>
   </div>
 
+  <div class="section">
+    <h2>Фильтра Fleetguard и REETGUARD</h2>
+    <div class="item">LF (масляные фильтры)</div>
+    <div class="item">FF (топливные фильтры)</div>
+    <div class="item">FS (водоотделяющие фильтры)</div>
+    <div class="item">AF (воздушные фильтры)</div>
+  </div>
+
+  <div class="section">
+    <h2>Оформить заказ</h2>
+    <form action="https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage" method="POST" onsubmit="sendTelegramMessage(); return false;">
+      <label for="name">Ваше имя:</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Номер телефона:</label>
+      <input type="text" id="phone" required>
+
+      <label for="order">Что вы хотите заказать?</label>
+      <textarea id="order" rows="4" required></textarea>
+
+      <button type="submit">Отправить заказ</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Контакты</h2>
+    <p>📍 Адрес: Ташкент, Сергели. Индекс.</p>
+    <p>📞 Телефон: +998 88 347 44 94</p>
+    <p>📞 Альтернативный номер: +998 95 926 50 94</p>
+    <p>💬 Telegram: <a href="https://t.me/Baxa012394" style="color: #f77;">@Baxa012394</a></p>
+  </div>
+
+  <footer>
+    © 2025 Oil & Filter Shop Uzbekistan. Все права защищены.
+  </footer>
+
   <script>
-    function openOrderForm(product) {
-      document.getElementById("orderModal").classList.remove("hidden");
-      document.getElementById("productName").value = product;
+    function sendTelegramMessage() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const order = document.getElementById('order').value;
+
+      const message = `🛒 Новый заказ:\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📝 Заказ: ${order}`;
+
+      fetch(`https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage?chat_id=@Baxa012394&text=${encodeURIComponent(message)}`)
+        .then(res => {
+          alert('Заказ успешно отправлен!');
+        })
+        .catch(err => {
+          alert('Ошибка отправки. Попробуйте позже.');
+        });
     }
-
-    function closeOrderForm() {
-      document.getElementById("orderModal").classList.add("hidden");
-    }
-
-    document.getElementById("orderForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("customerName").value;
-      const phone = document.getElementById("customerPhone").value;
-      const product = document.getElementById("productName").value;
-      const comment = document.getElementById("customerComment").value;
-
-      const message = `🛒 Новый заказ:%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📦 Товар: ${product}%0A💬 Комментарий: ${comment}`;
-      const url = `https://t.me/Baxa012394?text=${message}`;
-      window.open(url, "_blank");
-
-      closeOrderForm();
-    });
   </script>
-</body>
 
+</body>
 </html>
