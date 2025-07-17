@@ -1,135 +1,110 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oil & Filter Shop | Uzbekistan</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                  url('https://i.imgur.com/WbHK2wZ.png') center/cover no-repeat fixed;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://i.imgur.com/EbShAXK.jpg') center/cover no-repeat fixed;
       color: #fff;
     }
-
-    .overlay-text {
-      position: fixed;
-      top: 20%;
-      left: 10%;
-      font-size: 80px;
-      font-weight: bold;
-      color: rgba(255, 255, 255, 0.08);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #fff;
-    }
-
-    .product-card {
-      background-color: #fff;
-      color: #000;
+    header {
+      background-color: rgba(0, 0, 64, 0.8);
       padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      text-shadow: 2px 2px 4px #000;
+    }
+    section {
+      padding: 20px;
+    }
+    h2 {
+      color: #ffcc00;
+    }
+    .product {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
       margin-bottom: 20px;
+    }
+    .contact {
+      background-color: rgba(0, 0, 64, 0.8);
+      padding: 20px;
       border-radius: 10px;
     }
-
-    .btn {
-      background-color: #d32f2f;
-      color: #fff;
-      padding: 10px 15px;
+    label, input, textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background-color: #ffcc00;
       border: none;
-      border-radius: 6px;
+      padding: 10px;
+      font-size: 18px;
       cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
+      border-radius: 5px;
     }
-
-    .btn:hover {
-      background-color: #b71c1c;
-    }
-
     footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    a {
-      color: #66ccff;
+      background: rgba(0, 0, 64, 0.8);
+      padding: 10px;
+      margin-top: 20px;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <div class="overlay-text">OIL & FILTER</div>
+  <header>
+    <h1>OIL & FILTER SHOP | Uzbekistan</h1>
+  </header>
 
-  <div class="container">
-    <h1>Oil & Filter Shop | Uzbekistan</h1>
+  <section>
+    <h2>Фильтры Fleetguard / REETGUARD</h2>
+    <div class="product">LF — Масляные фильтры</div>
+    <div class="product">FF — Топливные фильтры</div>
+    <div class="product">FS — Фильтры сепараторы</div>
+    <div class="product">AF — Воздушные фильтры</div>
+  </section>
 
-    <h2>Масла MOTUL</h2>
-    <div class="product-card">
-      <h3>15W-40</h3>
-      <p>Цена: 120 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2015W-40%20масло">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>10W-40</h3>
-      <p>Цена: 130 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2010W-40%20масло">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>20W-50</h3>
-      <p>Цена: 110 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2020W-50%20масло">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>5W-30</h3>
-      <p>Цена: 140 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%205W-30%20масло">Заказать</a>
-    </div>
+  <section>
+    <h2>Масла</h2>
+    <div class="product">MOTUL 15W-40</div>
+    <div class="product">MOTUL 10W-40</div>
+    <div class="product">MOTUL 20W-50</div>
+    <div class="product">MOTUL 5W-30</div>
+    <div class="product">MOTUL 80W-90</div>
+  </section>
 
-    <h2>Фильтры</h2>
-    <div class="product-card">
-      <h3>Fleetguard AF</h3>
-      <p>Цена: 80 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20Fleetguard%20AF%20фильтр">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>Fleetguard FS</h3>
-      <p>Цена: 90 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20Fleetguard%20FS%20фильтр">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>REETGUARD AF</h3>
-      <p>Цена: 85 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20REETGUARD%20AF%20фильтр">Заказать</a>
-    </div>
-    <div class="product-card">
-      <h3>REETGUARD FS</h3>
-      <p>Цена: 95 000 сум</p>
-      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20REETGUARD%20FS%20фильтр">Заказать</a>
-    </div>
+  <section class="contact">
+    <h2>Оставить заказ</h2>
+    <form action="https://formsubmit.co/your@email.com" method="POST">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required>
 
-    <footer>
-      <p><strong>Телефон:</strong> +998 88 347 44 94</p>
-      <p><strong>Адрес:</strong> Ташкент, Сергели. Индекс</p>
-      <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
-    </footer>
-  </div>
+      <label for="phone">Телефон:</label>
+      <input type="text" id="phone" name="phone" required>
+
+      <label for="order">Ваш заказ:</label>
+      <textarea id="order" name="order" rows="4" required></textarea>
+
+      <button type="submit">Отправить заказ</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Контакты: +998 88 347 44 94 | +998 95 926 50 94</p>
+    <p>Адрес: Ташкент, Сергели. Индекс</p>
+    <p>Telegram: <a href="https://t.me/Baxa012394" style="color: #ffcc00">@Baxa012394</a></p>
+  </footer>
 </body>
 </html>
