@@ -1,121 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oil & Filter Shop | Uzbekistan</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0a0f2c;
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <title>Oil & Filter Shop | Uzbekistan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b1633; /* Тёмно-синий фон */
+      color: white;
+      margin: 0;
+      padding: 0 20px;
+    }
 
-        h1 {
-            color: #ff0000;
-        }
+    h1 {
+      color: #ff4b4b; /* Красный заголовок */
+    }
 
-        .contact {
-            margin-bottom: 30px;
-        }
+    .contact {
+      margin-bottom: 20px;
+    }
 
-        .category {
-            margin-top: 40px;
-        }
+    .product {
+      background-color: #1c2a4d;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
 
-        .item {
-            background-color: #121b3a;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
-        }
+    .product h3 {
+      margin: 0 0 10px;
+    }
 
-        .item button {
-            background-color: #ff0000;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .btn {
+      background-color: #ff4b4b;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-        .item button:hover {
-            background-color: #cc0000;
-        }
-    </style>
+    #cart {
+      margin-top: 30px;
+      background: #111d3a;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    #response {
+      margin-top: 10px;
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Oil & Filter Shop | Uzbekistan</h1>
-    <div class="contact">
-        <p><strong>Адрес:</strong> Ташкент, ИНДЕКС</p>
-        <p><strong>Тел:</strong> +998 95 926 50 94</p>
-        <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" style="color:#add8e6">@Baxa012394</a></p>
-    </div>
 
-    <div class="category">
-        <h2>Масла MOTUL</h2>
+  <h1>Oil & Filter Shop | Uzbekistan</h1>
+  <div class="contact">
+    <p><strong>Адрес:</strong> Ташкент, ИНДЕКС</p>
+    <p><strong>Тел:</strong> +998 95 926 50 94</p>
+    <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" style="color:#00afff">@Baxa012394</a></p>
+  </div>
 
-        <div class="item">
-            <p><strong>15W-40</strong></p>
-            <p>Бренд: MOTUL</p>
-            <p>Цена: 120 000 сум</p>
-            <button>Добавить в корзину</button>
-        </div>
+  <h2>Масла MOTUL</h2>
 
-        <div class="item">
-            <p><strong>10W-40</strong></p>
-            <p>Бренд: MOTUL</p>
-            <p>Цена: 130 000 сум</p>
-            <button>Добавить в корзину</button>
-        </div>
+  <div class="product">
+    <h3>15W-40</h3>
+    <p>Бренд: MOTUL</p>
+    <p>Цена: 120 000 сум</p>
+    <button class="btn" onclick="addToCart('15W-40 - 120 000 сум')">Добавить в корзину</button>
+  </div>
 
-        <div class="item">
-            <p><strong>20W-50</strong></p>
-            <p>Бренд: MOTUL</p>
-            <p>Цена: 110 000 сум</p>
-            <button>Добавить в корзину</button>
-        </div>
+  <div class="product">
+    <h3>10W-40</h3>
+    <p>Бренд: MOTUL</p>
+    <p>Цена: 130 000 сум</p>
+    <button class="btn" onclick="addToCart('10W-40 - 130 000 сум')">Добавить в корзину</button>
+  </div>
 
-        <div class="item">
-            <p><strong>5W-30</strong></p>
-            <p>Бренд: MOTUL</p>
-            <p>Цена: 150 000 сум</p>
-            <button>Добавить в корзину</button>
-        </div>
-    </div>
-
-    <div class="category">
-        <h2>Фильтры Fleetguard и REETGUARD</h2>
-
-        <div class="item">
-            <p><strong>LF-серия (Масляные)</strong></p>
-            <p>Бренды: Fleetguard, REETGUARD</p>
-            <button>Добавить в корзину</button>
-        </div>
-
-        <div class="item">
-            <p><strong>FF-серия (Топливные)</strong></p>
-            <p>Бренды: Fleetguard, REETGUARD</p>
-            <button>Добавить в корзину</button>
-        </div>
-
-        <div class="item">
-            <p><strong>FS-серия (Водосепараторы)</strong></p>
-            <p>Бренды: Fleetguard, REETGUARD</p>
-            <button>Добавить в корзину</button>
-        </div>
-
-        <div class="item">
-            <p><strong>AF-серия (Воздушные)</strong></p>
-            <p>Бренды: Fleetguard, REETGUARD</p>
-            <button>Добавить в корзину</button>
-        </div>
-    </div>
-</body>
-
-</html>
+  <div class="product">
+    <h3>20W-50</h3>
+    <p>Бренд: MOTUL</p>
+    <p>Цена: 110 000 сум</p>
