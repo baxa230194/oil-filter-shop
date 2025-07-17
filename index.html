@@ -8,41 +8,35 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('https://i.imgur.com/WbHK2wZ.png'); /* Здесь фон: капля и фильтр */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://i.imgur.com/WbHK2wZ.png') center/cover no-repeat fixed;
       color: #fff;
     }
 
     .overlay-text {
-      position: absolute;
+      position: fixed;
       top: 20%;
       left: 10%;
-      font-size: 100px;
+      font-size: 80px;
       font-weight: bold;
       color: rgba(255, 255, 255, 0.08);
       z-index: 0;
-      user-select: none;
+      pointer-events: none;
     }
 
     .container {
       position: relative;
       z-index: 1;
       padding: 40px;
-      background-color: rgba(0, 0, 0, 0.75);
-      border-radius: 10px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
     }
 
-    h1 {
-      color: #ffffff;
-    }
-
-    .contact {
-      margin-bottom: 30px;
+    h1, h2 {
+      text-align: center;
+      color: #fff;
     }
 
     .product-card {
@@ -60,10 +54,24 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
     }
 
     .btn:hover {
       background-color: #b71c1c;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    a {
+      color: #66ccff;
     }
   </style>
 </head>
@@ -72,63 +80,56 @@
 
   <div class="container">
     <h1>Oil & Filter Shop | Uzbekistan</h1>
-    <div class="contact">
-      <p><strong>Адрес:</strong> Ташкент, Сергели. Индекс</p>
-      <p><strong>Тел:</strong> +998 88 347 44 94</p>
-      <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" style="color:lightblue;">@Baxa012394</a></p>
-    </div>
 
     <h2>Масла MOTUL</h2>
     <div class="product-card">
       <h3>15W-40</h3>
-      <p>Бренд: MOTUL</p>
       <p>Цена: 120 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2015W-40%20масло">Заказать</a>
     </div>
     <div class="product-card">
       <h3>10W-40</h3>
-      <p>Бренд: MOTUL</p>
       <p>Цена: 130 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2010W-40%20масло">Заказать</a>
     </div>
     <div class="product-card">
       <h3>20W-50</h3>
-      <p>Бренд: MOTUL</p>
       <p>Цена: 110 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%2020W-50%20масло">Заказать</a>
     </div>
     <div class="product-card">
       <h3>5W-30</h3>
-      <p>Бренд: MOTUL</p>
       <p>Цена: 140 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%205W-30%20масло">Заказать</a>
     </div>
 
     <h2>Фильтры</h2>
     <div class="product-card">
       <h3>Fleetguard AF</h3>
-      <p>Бренд: Fleetguard</p>
       <p>Цена: 80 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20Fleetguard%20AF%20фильтр">Заказать</a>
     </div>
     <div class="product-card">
       <h3>Fleetguard FS</h3>
-      <p>Бренд: Fleetguard</p>
       <p>Цена: 90 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20Fleetguard%20FS%20фильтр">Заказать</a>
     </div>
     <div class="product-card">
       <h3>REETGUARD AF</h3>
-      <p>Бренд: REETGUARD</p>
       <p>Цена: 85 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20REETGUARD%20AF%20фильтр">Заказать</a>
     </div>
     <div class="product-card">
       <h3>REETGUARD FS</h3>
-      <p>Бренд: REETGUARD</p>
       <p>Цена: 95 000 сум</p>
-      <button class="btn">Добавить в корзину</button>
+      <a class="btn" href="https://t.me/Baxa012394?text=Хочу%20заказать%20REETGUARD%20FS%20фильтр">Заказать</a>
     </div>
+
+    <footer>
+      <p><strong>Телефон:</strong> +998 88 347 44 94</p>
+      <p><strong>Адрес:</strong> Ташкент, Сергели. Индекс</p>
+      <p><strong>Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
+    </footer>
   </div>
 </body>
 </html>
