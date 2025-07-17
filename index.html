@@ -3,175 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <meta name="description" content="Купить моторные масла MOTUL и фильтры FLEETGUARD, REETGUARD в Ташкенте. Быстрая доставка, отличные цены.">
+  <meta name="keywords" content="масла MOTUL, фильтры FLEETGUARD, REETGUARD, фильтра Ташкент, масляные фильтры, топливные фильтры, воздушные фильтры, купить масло, магазин масел и фильтров Узбекистан">
+  <meta name="author" content="Oil & Filter Shop | Uzbekistan">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Oil & Filter Shop | Uzbekistan" />
+  <meta property="og:description" content="Продажа масел MOTUL и фильтров FLEETGUARD, REETGUARD. Быстрая доставка по Ташкенту." />
+  <meta property="og:image" content="/favicon.ico" />
+  <meta property="og:url" content="https://oil-filter-shop.vercel.app/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
   <title>Oil & Filter Shop | Uzbekistan</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0a1f44;
-      color: #ffffff;
-    }
 
-    header {
-      background-color: #b30000;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-
-    nav {
-      background-color: #111;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 30px;
-    }
-
-    h2 {
-      border-bottom: 2px solid #b30000;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin: 5px 0;
-      background-color: #13294b;
-      padding: 10px;
-      border-left: 4px solid #b30000;
-    }
-
-    form {
-      background-color: #13294b;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 4px;
-    }
-
-    button {
-      background-color: #b30000;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #8b0000;
-    }
-
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-  <header>
-    <h1>Oil & Filter Shop | Uzbekistan</h1>
+<body class="bg-[#0a0f2c] text-white">
+
+  <header class="bg-red-600 p-4 text-center">
+    <h1 class="text-3xl font-bold">Oil & Filter Shop | Uzbekistan</h1>
+    <p class="text-sm mt-1">+998 88 347 44 94 | @Baxa012394 | Ташкент, Сергели, Индекс</p>
   </header>
 
-  <nav>
-    <a href="#filters">Фильтры</a>
-    <a href="#oils">Масла</a>
-    <a href="#order">Заказ</a>
-    <a href="#contact">Контакты</a>
-  </nav>
+  <main class="p-6">
+    <section>
+      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Масла MOTUL</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold text-lg">MOTUL 15W-40</h3>
+          <p>Универсальное минеральное масло для дизельных двигателей</p>
+        </div>
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold text-lg">MOTUL 10W-40</h3>
+          <p>Полусинтетическое масло для бензиновых и дизельных моторов</p>
+        </div>
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold text-lg">MOTUL 5W-30</h3>
+          <p>Синтетическое масло с повышенной защитой двигателя</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="filters">
-    <h2>Фильтры Fleetguard / REETGUARD</h2>
-    <ul>
-      <li>LF - Масляные фильтры</li>
-      <li>FF - Топливные фильтры</li>
-      <li>FS - Сепараторы воды и топлива</li>
-      <li>AF - Воздушные фильтры</li>
-    </ul>
-  </section>
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Фильтры FLEETGUARD / REETGUARD</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold">Масляные фильтры (LF)</h3>
+          <ul class="list-disc list-inside">
+            <li>Fleetguard LF3349</li>
+            <li>Reetguard LF9009</li>
+          </ul>
+        </div>
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold">Топливные фильтры (FF)</h3>
+          <ul class="list-disc list-inside">
+            <li>Fleetguard FF5488</li>
+            <li>Reetguard FF5269</li>
+          </ul>
+        </div>
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold">Воздушные фильтры (AF)</h3>
+          <ul class="list-disc list-inside">
+            <li>Fleetguard AF25354</li>
+            <li>Reetguard AF26671</li>
+          </ul>
+        </div>
+        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
+          <h3 class="font-semibold">Фильтры охлаждающей жидкости (WF)</h3>
+          <ul class="list-disc list-inside">
+            <li>Fleetguard WF2071</li>
+            <li>Reetguard WF2126</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section id="oils">
-    <h2>Масла MOTUL</h2>
-    <ul>
-      <li>MOTUL 15W-40</li>
-      <li>MOTUL 10W-40</li>
-      <li>MOTUL 20W-50</li>
-      <li>MOTUL 5W-30</li>
-      <li>MOTUL 80W-90</li>
-    </ul>
-  </section>
-
-  <section id="order">
-    <h2>Форма заказа</h2>
-    <form action="https://t.me/Baxa012394" method="get" target="_blank">
-      <label for="name">Имя</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="phone">Номер телефона</label>
-      <input type="text" id="phone" name="phone" required />
-
-      <label for="product">Выберите товар</label>
-      <select id="product" name="product">
-        <option value="LF">Фильтр LF</option>
-        <option value="FF">Фильтр FF</option>
-        <option value="FS">Фильтр FS</option>
-        <option value="AF">Фильтр AF</option>
-        <option value="motul15w40">MOTUL 15W-40</option>
-        <option value="motul5w30">MOTUL 5W-30</option>
-      </select>
-
-      <label for="message">Комментарий</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-
-      <button type="submit">Отправить заказ в Telegram</button>
-    </form>
-  </section>
-
-  <section id="contact">
-    <h2>Контактная информация</h2>
-    <ul>
-      <li><strong>Телефон:</strong> +998 88 347 44 94 / +998 95 926 50 94</li>
-      <li><strong>Telegram:</strong> <a href="https://t.me/Baxa012394" target="_blank" style="color: #ff5555;">@Baxa012394</a></li>
-      <li><strong>Адрес:</strong> г. Ташкент, Сергели</li>
-      <li><strong>Почтовый индекс:</strong> 100088</li>
-    </ul>
-  </section>
-
-  <footer>
-    © 2025 Oil & Filter Shop | Uzbekistan — Все права защищены.
-  </footer>
-
-</body>
-</html>
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Форма заказа</h2>
+      <form action="https://api.telegram.org/bot<ТОКЕН>/sendMessage" method="POST" class="bg-[#111735] p-6 rounded-xl space-y-4">
+        <input type="hidden" name="chat_id" value="@Baxa012394" />
+        <input
