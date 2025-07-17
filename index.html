@@ -7,25 +7,27 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f8f9fa;
       color: #222;
       padding: 20px;
     }
-    .product, .cart {
-      background: white;
+    .section {
+      margin-bottom: 30px;
+    }
+    .product {
+      background: #fff;
       padding: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     button {
       padding: 8px 12px;
-      margin-top: 10px;
       background-color: #d00000;
       color: white;
       border: none;
-      cursor: pointer;
       border-radius: 4px;
+      cursor: pointer;
     }
     button:hover {
       background-color: #a00000;
@@ -37,12 +39,28 @@
   <h1>Oil & Filter Shop | Uzbekistan</h1>
   <p><strong>Адрес:</strong> Ташкент, ИНДЕКС<br />
      <strong>Тел:</strong> +998 95 926 50 94<br />
-     <strong>Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a>
-  </p>
+     <strong>Telegram:</strong> <a href="https://t.me/Baxa012394">@Baxa012394</a></p>
 
-  <div id="products"></div>
+  <!-- Масла MOTUL -->
+  <div class="section">
+    <h2>Масла MOTUL</h2>
+    <div id="motul-products"></div>
+  </div>
 
-  <div class="cart" id="cart">
+  <!-- Фильтра Fleetguard -->
+  <div class="section">
+    <h2>Фильтры Fleetguard</h2>
+    <div id="fleetguard-products"></div>
+  </div>
+
+  <!-- Фильтра REETGUARD -->
+  <div class="section">
+    <h2>Фильтры REETGUARD</h2>
+    <div id="reetguard-products"></div>
+  </div>
+
+  <!-- Корзина -->
+  <div class="section">
     <h2>🛒 Корзина</h2>
     <ul id="cart-items"></ul>
     <p><strong>💰 Общая сумма:</strong> <span id="total">0</span> сум</p>
@@ -50,18 +68,32 @@
   </div>
 
   <script>
-    const products = [
-      { name: "Motul 15W-40", price: 120000, brand: "REETGUARD" },
-      { name: "Motul 10W-40", price: 130000, brand: "REETGUARD" },
-      { name: "Motul 20W-50", price: 110000, brand: "REETGUARD" },
-      { name: "Motul 5W-30",  price: 140000, brand: "REETGUARD" },
-      { name: "Motul 80W-90", price: 100000, brand: "REETGUARD" }
+    const motulProducts = [
+      { name: "15W-40", price: 120000, brand: "MOTUL" },
+      { name: "10W-40", price: 130000, brand: "MOTUL" },
+      { name: "20W-50", price: 110000, brand: "MOTUL" },
+      { name: "5W-30",  price: 140000, brand: "MOTUL" },
+      { name: "80W-90", price: 100000, brand: "MOTUL" }
+    ];
+
+    const fleetguardFilters = [
+      { name: "LF (Масляный)", price: 85000, brand: "Fleetguard" },
+      { name: "FF (Топливный)", price: 95000, brand: "Fleetguard" },
+      { name: "FS (Сепаратор)", price: 105000, brand: "Fleetguard" },
+      { name: "AF (Воздушный)", price: 125000, brand: "Fleetguard" }
+    ];
+
+    const reetguardFilters = [
+      { name: "LF (Масляный)", price: 75000, brand: "REETGUARD" },
+      { name: "FF (Топливный)", price: 85000, brand: "REETGUARD" },
+      { name: "FS (Сепаратор)", price: 95000, brand: "REETGUARD" },
+      { name: "AF (Воздушный)", price: 115000, brand: "REETGUARD" }
     ];
 
     const cart = [];
 
-    function renderProducts() {
-      const container = document.getElementById("products");
+    function renderProducts(products, containerId) {
+      const container = document.getElementById(containerId);
       products.forEach((product, index) => {
         const div = document.createElement("div");
         div.className = "product";
@@ -69,14 +101,19 @@
           <h3>${product.name}</h3>
           <p>Бренд: ${product.brand}</p>
           <p>Цена: ${product.price.toLocaleString()} сум</p>
-          <button onclick="addToCart(${index})">Добавить в корзину</button>
+          <button onclick="addToCart('${containerId}', ${index})">Добавить в корзину</button>
         `;
         container.appendChild(div);
       });
     }
 
-    function addToCart(index) {
-      cart.push(products[index]);
+    function addToCart(category, index) {
+      let item;
+      if (category === 'motul-products') item = motulProducts[index];
+      else if (category === 'fleetguard-products') item = fleetguardFilters[index];
+      else if (category === 'reetguard-products') item = reetguardFilters[index];
+
+      cart.push(item);
       updateCart();
     }
 
@@ -86,9 +123,9 @@
       list.innerHTML = "";
       let total = 0;
 
-      cart.forEach((item) => {
+      cart.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} — ${item.price.toLocaleString()} сум`;
+        li.textContent = `${item.name} — ${item.price.toLocaleString()} сум (${item.brand})`;
         list.appendChild(li);
         total += item.price;
       });
@@ -111,7 +148,9 @@
       window.open(`https://t.me/share/url?url=&text=${encodedMessage}`, "_blank");
     }
 
-    renderProducts();
+    renderProducts(motulProducts, "motul-products");
+    renderProducts(fleetguardFilters, "fleetguard-products");
+    renderProducts(reetguardFilters, "reetguard-products");
   </script>
 </body>
 </html>
