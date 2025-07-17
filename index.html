@@ -1,124 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Фильтры и Масла</title>
+  <meta charset="UTF-8" />
+  <title>Oil & Filter Shop Uzbekistan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      color: #222;
       margin: 0;
-      padding: 0;
+      background-color: #0a1b2e;
+      color: #f4f4f4;
     }
-    header, footer {
-      background-color: #2c2f54;
-      color: #fff;
+    header {
+      background-color: #8b0000;
+      padding: 20px;
       text-align: center;
-      padding: 1rem;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
     }
-    h1, h2 {
-      color: #8b0000;
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #ffffff;
+      border-bottom: 2px solid #8b0000;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
     .item-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 10px;
     }
     .item {
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 10px;
+      background: #132a44;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 5px solid #8b0000;
+      flex: 1 1 calc(45% - 20px);
       cursor: pointer;
-      flex: 1 1 200px;
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
     }
-    .cart {
-      padding: 10px;
-      background-color: #eaeaea;
-    }
-    .cart ul {
-      list-style: none;
-      padding: 0;
-    }
-    .cart li {
-      margin-bottom: 5px;
+    .item:hover {
+      background: #1f3d5a;
     }
     form {
-      padding: 10px;
+      background-color: #1c2f45;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
     }
     input, textarea {
       width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #8b0000;
+      border-radius: 5px;
+      background-color: #0a1b2e;
+      color: white;
     }
     button {
-      padding: 10px;
       background-color: #8b0000;
       color: white;
       border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
       cursor: pointer;
+      border-radius: 5px;
+    }
+    .cart {
+      background-color: #0f2235;
+      border: 1px solid #8b0000;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: #132a44;
+      color: #ccc;
+      margin-top: 50px;
+    }
+    a {
+      color: #ff6666;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Интернет-магазин фильтров</h1>
-  </header>
+  <header>Oil & Filter Shop | Uzbekistan</header>
+  <div class="container">
 
-  <section>
-    <h2>Фильтры Fleetguard</h2>
+    <h2>Фильтры Fleetguard (дополненные)</h2>
     <div class="item-list">
-      <div class="item" onclick="addToCart('Fleetguard LF777 — масляный фильтр (350,000 сум)', 350000)">LF777</div>
-      <div class="item" onclick="addToCart('Fleetguard LF670 — масляный фильтр (350,000 сум)', 350000)">LF670</div>
-      <div class="item" onclick="addToCart('Fleetguard LF9325 — масляный фильтр (300,000 сум)', 300000)">LF9325</div>
-      <div class="item" onclick="addToCart('Fleetguard LF16006 — масляный фильтр (300,000 сум)', 300000)">LF16006</div>
-      <div class="item" onclick="addToCart('Fleetguard LF747 — масляный фильтр (380,000 сум)', 380000)">LF747</div>
-      <div class="item" onclick="addToCart('Fleetguard FS1212 — топливный сепаратор (320,000 сум)', 320000)">FS1212</div>
-      <div class="item" onclick="addToCart('Fleetguard LF9050 — масляный фильтр (320,000 сум)', 320000)">LF9050</div>
-      <div class="item" onclick="addToCart('Fleetguard FS1006 — топливный сепаратор (370,000 сум)', 370000)">FS1006</div>
-      <div class="item" onclick="addToCart('Fleetguard FF63040N — топливный фильтр (360,000 сум)', 360000)">FF63040N</div>
-      <div class="item" onclick="addToCart('Fleetguard SN70447 — топливный фильтр (360,000 сум)', 360000)">SN70447</div>
-      <div class="item" onclick="addToCart('Fleetguard FF5611 — топливный фильтр (310,000 сум)', 310000)">FF5611</div>
-      <div class="item" onclick="addToCart('Fleetguard FS19914 — топливный сепаратор (750,000 сум)', 750000)">FS19914</div>
-      <div class="item" onclick="addToCart('Fleetguard FS0109800MX — топливный сепаратор (670,000 сум)', 670000)">FS0109800MX</div>
-      <div class="item" onclick="addToCart('Fleetguard HF35255 — гидравлический фильтр (280,000 сум)', 280000)">HF35255</div>
-      <div class="item" onclick="addToCart('Fleetguard HF28813 — гидравлический фильтр (300,000 сум)', 300000)">HF28813</div>
-      <div class="item" onclick="addToCart('Fleetguard LF9018 — масляный фильтр (350,000 сум)', 350000)">LF9018</div>
-      <div class="item" onclick="addToCart('Fleetguard FF202 — топливный фильтр (340,000 сум)', 340000)">FF202</div>
-      <div class="item" onclick="addToCart('Fleetguard FS19946 — топливный фильтр (350,000 сум)', 350000)">FS19946</div>
-      <div class="item" onclick="addToCart('Fleetguard FF5856 — топливный фильтр (310,000 сум)', 310000)">FF5856</div>
-      <div class="item" onclick="addToCart('Fleetguard HF35504 — гидравлический фильтр (310,000 сум)', 310000)">HF35504</div>
-      <div class="item" onclick="addToCart('Fleetguard HF6319 — гидравлический фильтр (310,000 сум)', 310000)">HF6319</div>
-      <div class="item" onclick="addToCart('Fleetguard AF25627 — воздушный фильтр (310,000 сум)', 310000)">AF25627</div>
+      <div class="item" onclick="addToCart('LF777 – Масляный фильтр', 30000)">LF777 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF670 – Масляный фильтр', 30000)">LF670 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF9325 – Масляный фильтр', 30000)">LF9325 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF16006 – Масляный фильтр', 30000)">LF16006 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF747 – Масляный фильтр', 30000)">LF747 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS1212 – Топливный сепаратор', 30000)">FS1212 – Топливный сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF9050 – Масляный фильтр', 30000)">LF9050 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS1006 – Топливный сепаратор', 30000)">FS1006 – Топливный сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FF63040N – Топливный фильтр', 30000)">FF63040N – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('SN70447 – Топливный фильтр', 30000)">SN70447 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FF5611 – Топливный фильтр', 30000)">FF5611 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS19914 – Топливный сепаратор', 30000)">FS19914 – Топливный сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS0109800MX – Топливный сепаратор', 30000)">FS0109800MX – Топливный сепаратор – 30,000 сум</div>
+      <div class="item" onclick="addToCart('HF35255 – Гидравлический фильтр', 30000)">HF35255 – Гидравлический фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('HF28813 – Гидравлический фильтр', 30000)">HF28813 – Гидравлический фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF9018 – Масляный фильтр', 30000)">LF9018 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FF202 – Топливный фильтр', 30000)">FF202 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS19946 – Топливный фильтр', 30000)">FS19946 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FF5856 – Топливный фильтр', 30000)">FF5856 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('HF35504 – Гидравлический фильтр', 30000)">HF35504 – Гидравлический фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('HF6319 – Гидравлический фильтр', 30000)">HF6319 – Гидравлический фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('AF25627 – Воздушный фильтр', 30000)">AF25627 – Воздушный фильтр – 30,000 сум</div>
     </div>
 
-    <h2>Фильтры REETGUARD</h2>
-    <div class="item-list">
-      <div class="item" onclick="addToCart('REETGUARD SA19357/AF26419 — воздушный фильтр (30,000 сум)', 30000)">SA19357/AF26419</div>
-      <div class="item" onclick="addToCart('REETGUARD SA17527 — воздушный фильтр (30,000 сум)', 30000)">SA17527</div>
-      <div class="item" onclick="addToCart('REETGUARD C29146 — каб. фильтр (30,000 сум)', 30000)">C29146</div>
-      <div class="item" onclick="addToCart('REETGUARD C26106 — каб. фильтр (30,000 сум)', 30000)">C26106</div>
-      <div class="item" onclick="addToCart('REETGUARD AF1907 — воздушный фильтр (30,000 сум)', 30000)">AF1907</div>
-      <div class="item" onclick="addToCart('REETGUARD AF25897 — воздушный фильтр (30,000 сум)', 30000)">AF25897</div>
-      <div class="item" onclick="addToCart('REETGUARD HF29072 — гидравлический фильтр (30,000 сум)', 30000)">HF29072</div>
-      <div class="item" onclick="addToCart('REETGUARD HF6836 — гидравлический фильтр (30,000 сум)', 30000)">HF6836</div>
-      <div class="item" onclick="addToCart('REETGUARD LF17056 — масляный фильтр (30,000 сум)', 30000)">LF17056</div>
-      <div class="item" onclick="addToCart('REETGUARD LF16401/4627133 — масляный фильтр (30,000 сум)', 30000)">LF16401/4627133</div>
-      <div class="item" onclick="addToCart('REETGUARD LF9000 — масляный фильтр (30,000 сум)', 30000)">LF9000</div>
-      <div class="item" onclick="addToCart('REETGUARD LF747 — масляный фильтр (30,000 сум)', 30000)">LF747</div>
-      <div class="item" onclick="addToCart('REETGUARD LF3973 — масляный фильтр (30,000 сум)', 30000)">LF3973</div>
-      <div class="item" onclick="addToCart('REETGUARD LF3568 — масляный фильтр (30,000 сум)', 30000)">LF3568</div>
-      <div class="item" onclick="addToCart('REETGUARD LF9070 — масляный фильтр (30,000 сум)', 30000)">LF9070</div>
-      <div class="item" onclick="addToCart('REETGUARD LF9018 — масляный фильтр (30,000 сум)', 30000)">LF9018</div>
-      <div class="item" onclick="addToCart('REETGUARD LF9050 — масляный фильтр (30,000 сум)', 30000)">LF9050</div>
-      <div class="item" onclick="addToCart('REETGUARD LF9009 — масляный фильтр (30,000 сум)', 30000)">LF9009</div>
-      <div class="item" onclick="addToCart('REETGUARD LF3769 — масляный фильтр (30,000 сум)', 30000)">LF3769</div>
-      <div class="item" onclick="addToCart('REETGUARD LF4006 — масляный фильтр (30,000 сум)', 30000)">LF4006</div>
-    </div>
-  </section>
-
-<!-- корзина и форма идут ниже -->
+  </div>
+</body>
+</html>
