@@ -1,92 +1,99 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
-  <meta name="description" content="Купить моторные масла MOTUL и фильтры FLEETGUARD, REETGUARD в Ташкенте. Быстрая доставка, отличные цены.">
-  <meta name="keywords" content="масла MOTUL, фильтры FLEETGUARD, REETGUARD, фильтра Ташкент, масляные фильтры, топливные фильтры, воздушные фильтры, купить масло, магазин масел и фильтров Узбекистан">
-  <meta name="author" content="Oil & Filter Shop | Uzbekistan">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Oil & Filter Shop | Uzbekistan" />
-  <meta property="og:description" content="Продажа масел MOTUL и фильтров FLEETGUARD, REETGUARD. Быстрая доставка по Ташкенту." />
-  <meta property="og:image" content="/favicon.ico" />
-  <meta property="og:url" content="https://oil-filter-shop.vercel.app/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oil & Filter Shop | Uzbekistan</title>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#0a0f2c] text-white">
-
-  <header class="bg-red-600 p-4 text-center">
-    <h1 class="text-3xl font-bold">Oil & Filter Shop | Uzbekistan</h1>
-    <p class="text-sm mt-1">+998 88 347 44 94 | @Baxa012394 | Ташкент, Сергели, Индекс</p>
+<body class="bg-blue-900 text-white">
+  <header class="p-6 bg-blue-800 text-center text-white text-3xl font-bold">
+    OIL & FILTER SHOP | UZBEKISTAN
   </header>
 
-  <main class="p-6">
-    <section>
-      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Масла MOTUL</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold text-lg">MOTUL 15W-40</h3>
-          <p>Универсальное минеральное масло для дизельных двигателей</p>
-        </div>
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold text-lg">MOTUL 10W-40</h3>
-          <p>Полусинтетическое масло для бензиновых и дизельных моторов</p>
-        </div>
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold text-lg">MOTUL 5W-30</h3>
-          <p>Синтетическое масло с повышенной защитой двигателя</p>
-        </div>
-      </div>
-    </section>
+  <section class="text-center p-4">
+    <h2 class="text-2xl mb-4 font-semibold text-red-500">Контакты</h2>
+    <p>📞 Телефон: +998 88 347 44 94</p>
+    <p>📍 Адрес: Ташкент, Сергели. Индекс</p>
+    <p>Telegram: <a href="https://t.me/Baxa012394" class="text-red-400 underline">@Baxa012394</a></p>
+  </section>
 
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Фильтры FLEETGUARD / REETGUARD</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold">Масляные фильтры (LF)</h3>
-          <ul class="list-disc list-inside">
-            <li>Fleetguard LF3349</li>
-            <li>Reetguard LF9009</li>
-          </ul>
-        </div>
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold">Топливные фильтры (FF)</h3>
-          <ul class="list-disc list-inside">
-            <li>Fleetguard FF5488</li>
-            <li>Reetguard FF5269</li>
-          </ul>
-        </div>
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold">Воздушные фильтры (AF)</h3>
-          <ul class="list-disc list-inside">
-            <li>Fleetguard AF25354</li>
-            <li>Reetguard AF26671</li>
-          </ul>
-        </div>
-        <div class="bg-[#111735] p-4 rounded-xl shadow-md">
-          <h3 class="font-semibold">Фильтры охлаждающей жидкости (WF)</h3>
-          <ul class="list-disc list-inside">
-            <li>Fleetguard WF2071</li>
-            <li>Reetguard WF2126</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <main class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Масла -->
+    <div class="bg-blue-800 p-4 rounded-xl">
+      <h2 class="text-xl font-bold text-red-400 mb-2">Motul Масла</h2>
+      <ul class="list-disc pl-6">
+        <li>Motul 15W-40 <button onclick="openOrderForm('Motul 15W-40')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>Motul 10W-40 <button onclick="openOrderForm('Motul 10W-40')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>Motul 20W-50 <button onclick="openOrderForm('Motul 20W-50')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>Motul 5W-30 <button onclick="openOrderForm('Motul 5W-30')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>Motul 80W-90 <button onclick="openOrderForm('Motul 80W-90')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+      </ul>
+    </div>
 
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold border-b border-red-500 mb-4">Форма заказа</h2>
-      <form action="https://api.telegram.org/bot<ТОКЕН>/sendMessage" method="POST" class="bg-[#111735] p-6 rounded-xl space-y-4">
-        <input type="hidden" name="chat_id" value="@Baxa012394" />
-        <input
+    <!-- Фильтры -->
+    <div class="bg-blue-800 p-4 rounded-xl">
+      <h2 class="text-xl font-bold text-red-400 mb-2">Фильтры Fleetguard / Reetguard</h2>
+      <ul class="list-disc pl-6">
+        <li>LF (масляные) <button onclick="openOrderForm('Фильтр LF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>FF (топливные) <button onclick="openOrderForm('Фильтр FF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>FS (сепараторы) <button onclick="openOrderForm('Фильтр FS')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+        <li>AF (воздушные) <button onclick="openOrderForm('Фильтр AF')" class="bg-red-600 text-white px-3 py-1 rounded ml-2">Заказать</button></li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Модальное окно заказа -->
+  <div id="orderModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div class="bg-white text-black rounded-xl p-6 w-full max-w-md">
+      <h2 class="text-xl font-bold mb-4">Оформление заказа</h2>
+      <form id="orderForm">
+        <label class="block mb-2">Ваше имя</label>
+        <input type="text" id="customerName" required class="w-full p-2 border rounded mb-3">
+
+        <label class="block mb-2">Телефон</label>
+        <input type="tel" id="customerPhone" required class="w-full p-2 border rounded mb-3">
+
+        <label class="block mb-2">Товар</label>
+        <input type="text" id="productName" readonly class="w-full p-2 border rounded mb-3">
+
+        <label class="block mb-2">Комментарий</label>
+        <textarea id="customerComment" class="w-full p-2 border rounded mb-4"></textarea>
+
+        <div class="flex justify-between">
+          <button type="button" onclick="closeOrderForm()" class="text-red-600">Отмена</button>
+          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openOrderForm(product) {
+      document.getElementById("orderModal").classList.remove("hidden");
+      document.getElementById("productName").value = product;
+    }
+
+    function closeOrderForm() {
+      document.getElementById("orderModal").classList.add("hidden");
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("customerName").value;
+      const phone = document.getElementById("customerPhone").value;
+      const product = document.getElementById("productName").value;
+      const comment = document.getElementById("customerComment").value;
+
+      const message = `🛒 Новый заказ:%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📦 Товар: ${product}%0A💬 Комментарий: ${comment}`;
+      const url = `https://t.me/Baxa012394?text=${message}`;
+      window.open(url, "_blank");
+
+      closeOrderForm();
+    });
+  </script>
+</body>
+
+</html>
