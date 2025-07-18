@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oil & Filter Shop Uzbekistan</title>
   <style>
     body {
@@ -52,33 +52,13 @@
       border: 1px solid #8b0000;
       border-radius: 8px;
       padding: 15px;
-      margin-top: 30px;
-    }
-    label, input, textarea, button {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-    }
-    input, textarea {
-      padding: 10px;
-      background-color: #1a2d44;
-      border: 1px solid #8b0000;
-      color: white;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #8b0000;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      margin-top: 20px;
     }
     footer {
-      background-color: #132a44;
       text-align: center;
       padding: 20px;
       font-size: 14px;
+      background-color: #132a44;
       color: #ccc;
       margin-top: 50px;
     }
@@ -90,101 +70,66 @@
 <body>
   <header>Oil & Filter Shop | Uzbekistan</header>
   <div class="container">
+    <h2>Фильтры Reetguard & Fleetguard</h2>
+    <div class="item-list" id="filter-list"></div>
 
-    <h2>Масла</h2>
-    <div class="item-list">
-      <div class="item" onclick="addToCart('Масло моторное 5W30', 47000)">Масло моторное 5W30 – 47,000 сум/л</div>
-      <div class="item" onclick="addToCart('Масло моторное 10W40', 47000)">Масло моторное 10W40 – 47,000 сум/л</div>
-      <div class="item" onclick="addToCart('Масло гидравлическое HLP46', 47000)">Масло гидравлическое HLP46 – 47,000 сум/л</div>
-    </div>
-
-    <h2>Фильтры Fleetguard</h2>
-    <div class="item-list">
-      <div class="item" onclick="addToCart('LF777 – Масляный фильтр', 30000)">LF777 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF670 – Масляный фильтр', 30000)">LF670 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('LF9325 – Масляный фильтр', 30000)">LF9325 – Масляный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('FS1212 – Топливный фильтр', 30000)">FS1212 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('HF35255 – Гидравлический фильтр', 30000)">HF35255 – Гидравлический фильтр – 30,000 сум</div>
-      <!-- Добавь другие по аналогии -->
-    </div>
-
-    <h2>Фильтры Reetguard</h2>
-    <div class="item-list">
-      <div class="item" onclick="addToCart('RR1234 – Топливный фильтр', 30000)">RR1234 – Топливный фильтр – 30,000 сум</div>
-      <div class="item" onclick="addToCart('RR5678 – Масляный фильтр', 30000)">RR5678 – Масляный фильтр – 30,000 сум</div>
-      <!-- Добавь другие по аналогии -->
-    </div>
-
-    <div class="cart" id="cart">
-      <h2>Корзина</h2>
-      <ul id="cart-items"></ul>
-      <p><strong>Общая сумма:</strong> <span id="total">0</span> сум</p>
-      <form onsubmit="sendOrder(event)">
-        <label for="name">Имя:</label>
-        <input type="text" id="name" required>
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" required>
-        <label for="notes">Комментарий:</label>
-        <textarea id="notes"></textarea>
-        <button type="submit">Отправить заказ в Telegram</button>
-      </form>
-    </div>
-
-    <h2>О нас</h2>
-    <p>Наша компания занимается поставками фильтров и масел по Узбекистану. Мы предлагаем только оригинальную продукцию Fleetguard и Reetguard по доступным ценам. Гарантия качества и быстрая доставка.</p>
-
+    <h2>Корзина</h2>
+    <div class="cart" id="cart"></div>
   </div>
 
   <footer>
-    Контакты: <br>
-    Телефон: +998 90 123 45 67 <br>
-    Email: info@oil-filter-shop.uz<br>
-    Google Диск: <a href="https://drive.google.com/drive/my-drive" target="_blank">Файлы и сертификаты</a>
+    © 2025 Oil & Filter Shop Uzbekistan | <a href="https://drive.google.com/drive/my-drive" target="_blank">Файлы на Google Диске</a>
   </footer>
 
   <script>
-    let cart = [];
+    const filters = [
+      // Fleetguard + Reetguard из изображений
+      ['Воздушный фильтр', 'SA19357/AF26419'], ['Воздушный фильтр', 'SA17527'], ['Воздушный кабинный фильтр', 'C29146'],
+      ['Воздушный кабинный фильтр', 'C26106'], ['Воздушный фильтр', 'AF1907'], ['Воздушный фильтр', 'AF25897'],
+      ['Гидравлический фильтр', 'HF29072'], ['Гидравлический фильтр', 'HF6836'],
+      ['Масляный фильтр', 'LF17056'], ['Масляный фильтр', 'LF16401/4627133'], ['Масляный фильтр', 'LF9000'],
+      ['Масляный фильтр', 'LF747'], ['Масляный фильтр', 'LF3973'], ['Масляный фильтр', 'LF3568'],
+      ['Масляный фильтр', 'LF9070'], ['Масляный фильтр', 'LF9018'], ['Масляный фильтр', 'LF9050'],
+      ['Масляный фильтр', 'LF9009'], ['Масляный фильтр', 'LF3769'], ['Масляный фильтр', 'LF4006'],
+      ['Масляный фильтр', 'LF777'], ['Масляный фильтр', 'LF670'], ['Масляный фильтр', 'LF9325'],
+      ['Масляный фильтр', 'LF16006'], ['Топливный сепаратор', 'FS1212'], ['Топливный сепаратор', 'FS1006'],
+      ['Топливный фильтр', 'FF63040N'], ['Топливный фильтр', 'SN70447'], ['Топливный фильтр', 'FF5611'],
+      ['Топливный сепаратор', 'FS19914'], ['Топливный сепаратор', 'FS0109800MX'], ['Гидравлический фильтр', 'HF35255'],
+      ['Гидравлический фильтр', 'HF28813'], ['Топливный фильтр', 'FF202'], ['Топливный фильтр', 'FS19946'],
+      ['Топливный фильтр', 'FF5856'], ['Гидравлический фильтр', 'HF35504'], ['Гидравлический фильтр', 'HF6319'],
+      ['Воздушный фильтр', 'AF25627']
+    ];
+
+    const list = document.getElementById('filter-list');
+    const cart = document.getElementById('cart');
+    let cartItems = [];
+
+    filters.forEach(([type, model]) => {
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.textContent = `${model} – ${type} – 30,000 сум`;
+      item.onclick = () => addToCart(`${model} – ${type}`, 30000);
+      list.appendChild(item);
+    });
 
     function addToCart(name, price) {
-      cart.push({ name, price });
-      updateCart();
+      cartItems.push({ name, price });
+      renderCart();
     }
 
-    function updateCart() {
-      const list = document.getElementById("cart-items");
-      const total = document.getElementById("total");
-      list.innerHTML = "";
-      let sum = 0;
-      cart.forEach(item => {
-        sum += item.price;
-        const li = document.createElement("li");
-        li.textContent = `${item.name} – ${item.price} сум`;
-        list.appendChild(li);
+    function renderCart() {
+      if (cartItems.length === 0) {
+        cart.innerHTML = '<p>Корзина пуста.</p>';
+        return;
+      }
+      let total = 0;
+      let html = '<ul>';
+      cartItems.forEach(item => {
+        html += `<li>${item.name} — ${item.price.toLocaleString()} сум</li>`;
+        total += item.price;
       });
-      total.textContent = sum;
-    }
-
-    function sendOrder(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const notes = document.getElementById("notes").value;
-      let text = `Новый заказ!\nИмя: ${name}\nТелефон: ${phone}\nКомментарий: ${notes}\nЗаказ:\n`;
-      cart.forEach(item => {
-        text += `${item.name} – ${item.price} сум\n`;
-      });
-      const token = "PASTE_YOUR_TELEGRAM_BOT_TOKEN";
-      const chat_id = "YOUR_CHAT_ID";
-      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id,
-          text
-        })
-      }).then(() => alert("Заказ отправлен!")).catch(() => alert("Ошибка отправки"));
+      html += `</ul><strong>Общая сумма: ${total.toLocaleString()} сум</strong>`;
+      cart.innerHTML = html;
     }
   </script>
 </body>
