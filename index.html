@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oil & Filter Shop | Uzbekistan</title>
+  <title>Oil & Filter Shop Uzbekistan</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,6 +17,7 @@
       text-align: center;
       font-size: 28px;
       font-weight: bold;
+      color: #ffffff;
     }
     .container {
       max-width: 1000px;
@@ -46,58 +47,43 @@
     .item:hover {
       background: #1f3d5a;
     }
-    form {
-      background-color: #1c2f45;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 30px;
-    }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #8b0000;
-      border-radius: 5px;
-      background-color: #0a1b2e;
-      color: white;
-    }
-    button {
-      background-color: #8b0000;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 15px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
     .cart {
       background-color: #0f2235;
       border: 1px solid #8b0000;
       border-radius: 8px;
       padding: 15px;
-      margin-top: 20px;
+      margin-top: 30px;
+    }
+    label, input, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      background-color: #1a2d44;
+      border: 1px solid #8b0000;
+      color: white;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #8b0000;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
     footer {
+      background-color: #132a44;
       text-align: center;
       padding: 20px;
       font-size: 14px;
-      background-color: #132a44;
       color: #ccc;
       margin-top: 50px;
     }
     a {
       color: #ff6666;
-    }
-    @media (max-width: 600px) {
-      .item-list {
-        flex-direction: column;
-      }
-      .item {
-        flex: 1 1 100%;
-      }
     }
   </style>
 </head>
@@ -105,82 +91,100 @@
   <header>Oil & Filter Shop | Uzbekistan</header>
   <div class="container">
 
+    <h2>Масла</h2>
+    <div class="item-list">
+      <div class="item" onclick="addToCart('Масло моторное 5W30', 47000)">Масло моторное 5W30 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('Масло моторное 10W40', 47000)">Масло моторное 10W40 – 47,000 сум/л</div>
+      <div class="item" onclick="addToCart('Масло гидравлическое HLP46', 47000)">Масло гидравлическое HLP46 – 47,000 сум/л</div>
+    </div>
+
     <h2>Фильтры Fleetguard</h2>
     <div class="item-list">
       <div class="item" onclick="addToCart('LF777 – Масляный фильтр', 30000)">LF777 – Масляный фильтр – 30,000 сум</div>
-      <!-- Добавить остальные фильтры Fleetguard -->
+      <div class="item" onclick="addToCart('LF670 – Масляный фильтр', 30000)">LF670 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('LF9325 – Масляный фильтр', 30000)">LF9325 – Масляный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('FS1212 – Топливный фильтр', 30000)">FS1212 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('HF35255 – Гидравлический фильтр', 30000)">HF35255 – Гидравлический фильтр – 30,000 сум</div>
+      <!-- Добавь другие по аналогии -->
     </div>
 
     <h2>Фильтры Reetguard</h2>
     <div class="item-list">
-      <div class="item" onclick="addToCart('R-1001 – Фильтр', 30000)">R-1001 – Фильтр – 30,000 сум</div>
-      <!-- Добавить остальные фильтры Reetguard -->
+      <div class="item" onclick="addToCart('RR1234 – Топливный фильтр', 30000)">RR1234 – Топливный фильтр – 30,000 сум</div>
+      <div class="item" onclick="addToCart('RR5678 – Масляный фильтр', 30000)">RR5678 – Масляный фильтр – 30,000 сум</div>
+      <!-- Добавь другие по аналогии -->
     </div>
 
-    <h2>Масла</h2>
-    <div class="item-list">
-      <div class="item" onclick="addToCart('Масло 5W40', 47000)">Масло 5W40 – 47,000 сум/л</div>
-      <!-- Добавить остальные масла -->
+    <div class="cart" id="cart">
+      <h2>Корзина</h2>
+      <ul id="cart-items"></ul>
+      <p><strong>Общая сумма:</strong> <span id="total">0</span> сум</p>
+      <form onsubmit="sendOrder(event)">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" required>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" required>
+        <label for="notes">Комментарий:</label>
+        <textarea id="notes"></textarea>
+        <button type="submit">Отправить заказ в Telegram</button>
+      </form>
     </div>
 
-    <div class="cart" id="cart" style="display: none;">
-      <h2>🛒 Корзина</h2>
-      <ul id="cart-list"></ul>
-      <p id="total" style="font-weight: bold; margin-top: 10px;"></p>
-    </div>
-
-    <form id="orderForm">
-      <h2>Оформить заказ</h2>
-      <label for="name">Ваше имя</label>
-      <input type="text" id="name" required>
-      <label for="phone">Телефон</label>
-      <input type="text" id="phone" required>
-      <label for="comment">Комментарий</label>
-      <textarea id="comment"></textarea>
-      <button type="button" onclick="sendOrder()">Отправить в Telegram</button>
-    </form>
+    <h2>О нас</h2>
+    <p>Наша компания занимается поставками фильтров и масел по Узбекистану. Мы предлагаем только оригинальную продукцию Fleetguard и Reetguard по доступным ценам. Гарантия качества и быстрая доставка.</p>
 
   </div>
 
   <footer>
-    📍 Адрес: г. Ташкент, Узбекистан <br>
-    📞 Телефон: +998 90 123 45 67 <br>
-    📧 Email: info@oilshop.uz <br>
-    📁 <a href="https://drive.google.com/drive/my-drive" target="_blank">Каталог на Google Диске</a>
+    Контакты: <br>
+    Телефон: +998 90 123 45 67 <br>
+    Email: info@oil-filter-shop.uz<br>
+    Google Диск: <a href="https://drive.google.com/drive/my-drive" target="_blank">Файлы и сертификаты</a>
   </footer>
 
   <script>
-    const cart = [];
-    let totalSum = 0;
+    let cart = [];
 
-    function addToCart(item, price) {
-      cart.push({ name: item, price: price });
-      totalSum += price;
+    function addToCart(name, price) {
+      cart.push({ name, price });
       updateCart();
     }
 
     function updateCart() {
-      const cartDiv = document.getElementById('cart');
-      const list = document.getElementById('cart-list');
-      const total = document.getElementById('total');
-      list.innerHTML = '';
-      cart.forEach(el => {
-        const li = document.createElement('li');
-        li.textContent = `${el.name} – ${el.price.toLocaleString()} сум`;
+      const list = document.getElementById("cart-items");
+      const total = document.getElementById("total");
+      list.innerHTML = "";
+      let sum = 0;
+      cart.forEach(item => {
+        sum += item.price;
+        const li = document.createElement("li");
+        li.textContent = `${item.name} – ${item.price} сум`;
         list.appendChild(li);
       });
-      total.textContent = `Итого: ${totalSum.toLocaleString()} сум`;
-      cartDiv.style.display = 'block';
+      total.textContent = sum;
     }
 
-    function sendOrder() {
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const comment = document.getElementById('comment').value;
-      const items = cart.map(item => `- ${item.name} – ${item.price} сум`).join('%0A');
-      const message = `🛒 Новый заказ%0A👤 Имя: ${name}%0A📞 Телефон: ${phone}%0A📦 Товары:%0A${items}%0A💬 Комментарий: ${comment}%0A💰 Сумма: ${totalSum} сум`;
-      const telegramUrl = `https://t.me/Baxa012394?text=${message}`;
-      window.open(telegramUrl, '_blank');
+    function sendOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const notes = document.getElementById("notes").value;
+      let text = `Новый заказ!\nИмя: ${name}\nТелефон: ${phone}\nКомментарий: ${notes}\nЗаказ:\n`;
+      cart.forEach(item => {
+        text += `${item.name} – ${item.price} сум\n`;
+      });
+      const token = "PASTE_YOUR_TELEGRAM_BOT_TOKEN";
+      const chat_id = "YOUR_CHAT_ID";
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id,
+          text
+        })
+      }).then(() => alert("Заказ отправлен!")).catch(() => alert("Ошибка отправки"));
     }
   </script>
 </body>
