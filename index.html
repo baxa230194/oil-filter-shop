@@ -1,122 +1,121 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oil & Filter Shop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Магазин масел и фильтров</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #0c1a2b;
-      color: white;
+      background-color: #0b1f3a;
+      color: #fff;
     }
-    header {
-      background-color: #112244;
-      padding: 20px;
+    header, footer {
+      background-color: #061426;
+      padding: 1rem;
       text-align: center;
     }
-    h1 {
-      margin: 0;
-      font-size: 28px;
-    }
     .container {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
     }
-    .product {
-      background-color: #1a2d45;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    h2 {
+      color: #fff;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
     }
-    .product h2 {
-      font-size: 20px;
+    .item {
+      background: #10294a;
+      margin: 0.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .item h3 {
       margin-top: 0;
     }
-    .product p {
-      margin: 5px 0;
-    }
-    button {
-      margin-top: 10px;
-      background-color: #c0392b;
+    .item button {
+      background-color: #d62828;
+      color: #fff;
       border: none;
-      padding: 10px;
-      color: white;
-      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       cursor: pointer;
     }
     .cart {
-      background: #132840;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px;
-    }
-    .footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #061426;
+      border-radius: 12px;
     }
     a {
-      color: #85c1e9;
+      color: #0ff;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Интернет-магазин масел и фильтров</h1>
-    <p>Telegram: <a href="https://t.me/Baxa012394" target="_blank">@Baxa012394</a> | Тел: +998954265094</p>
-    <p><a href="https://drive.google.com" target="_blank">Ссылка на каталог в Google Диске</a></p>
+    <h1>МАГАЗИН МАСЕЛ И ФИЛЬТРОВ</h1>
+    <p>Telegram: <a href="https://t.me/Baxa012394" target="_blank">@Baxa012394</a> | Тел: <a href="tel:+998954265094">+998 95 426 50 94</a></p>
+    <p><a href="https://drive.google.com/drive/folders/1sxazWxB6iLZ9yVqR-XR7J-rmdJxzOTPR?usp=sharing" target="_blank">Каталог на Google Диске</a></p>
   </header>
+  <div class="container">
 
-  <div class="container" id="product-list">
-    <!-- Масла -->
-    <div class="product"><h2>G-Profi 10W-40</h2><p>Цена: 47 000 сум/л</p><button onclick="addToCart('G-Profi 10W-40')">Добавить в корзину</button></div>
-    <div class="product"><h2>G-Special 15W-40</h2><p>Цена: 50 000 сум/л</p><button onclick="addToCart('G-Special 15W-40')">Добавить в корзину</button></div>
-    <div class="product"><h2>G-Truck 10W-40</h2><p>Цена: 52 000 сум/л</p><button onclick="addToCart('G-Truck 10W-40')">Добавить в корзину</button></div>
-    <div class="product"><h2>G-Box 5W-30</h2><p>Цена: 55 000 сум/л</p><button onclick="addToCart('G-Box 5W-30')">Добавить в корзину</button></div>
-    <div class="product"><h2>Gazpromneft 15W-40</h2><p>Цена: 47 000 сум/л</p><button onclick="addToCart('Gazpromneft 15W-40')">Добавить в корзину</button></div>
+    <h2>Фильтры Fleetguard</h2>
+    <div class="item"><h3>LF3000</h3><p>Масляный фильтр – от 30 000 сум</p><button onclick="addToCart('LF3000')">В корзину</button></div>
+    <div class="item"><h3>FS1242</h3><p>Топливный фильтр – от 30 000 сум</p><button onclick="addToCart('FS1242')">В корзину</button></div>
+    <div class="item"><h3>AF25354</h3><p>Воздушный фильтр – от 60 000 сум</p><button onclick="addToCart('AF25354')">В корзину</button></div>
 
-    <!-- Фильтры -->
-    <div class="product"><h2>Fleetguard LF3000</h2><p>Масляный фильтр</p><p>Цена: 35 000 сум</p><button onclick="addToCart('Fleetguard LF3000')">Добавить в корзину</button></div>
-    <div class="product"><h2>Fleetguard FS1242</h2><p>Топливный фильтр</p><p>Цена: 32 000 сум</p><button onclick="addToCart('Fleetguard FS1242')">Добавить в корзину</button></div>
-    <div class="product"><h2>Fleetguard AF25354</h2><p>Воздушный фильтр</p><p>Цена: 50 000 сум</p><button onclick="addToCart('Fleetguard AF25354')">Добавить в корзину</button></div>
-    <div class="product"><h2>Reetguard LF9009</h2><p>Масляный фильтр</p><p>Цена: 34 000 сум</p><button onclick="addToCart('Reetguard LF9009')">Добавить в корзину</button></div>
-    <div class="product"><h2>Reetguard AF55015</h2><p>Воздушный фильтр</p><p>Цена: 48 000 сум</p><button onclick="addToCart('Reetguard AF55015')">Добавить в корзину</button></div>
+    <h2>Фильтры Reetguard</h2>
+    <div class="item"><h3>LF9009</h3><p>Масляный фильтр – от 35 000 сум</p><button onclick="addToCart('LF9009')">В корзину</button></div>
+    <div class="item"><h3>AF55015</h3><p>Воздушный фильтр – от 55 000 сум</p><button onclick="addToCart('AF55015')">В корзину</button></div>
+
+    <h2>Масла G-Profi</h2>
+    <div class="item"><h3>G-Profi 10W-40</h3><p>от 47 000 сум/л</p><button onclick="addToCart('G-Profi 10W-40')">В корзину</button></div>
+    <div class="item"><h3>G-Profi 15W-40</h3><p>от 47 000 сум/л</p><button onclick="addToCart('G-Profi 15W-40')">В корзину</button></div>
+
+    <h2>Масла G-Special</h2>
+    <div class="item"><h3>G-Special 10W-40</h3><p>от 47 000 сум/л</p><button onclick="addToCart('G-Special 10W-40')">В корзину</button></div>
+
+    <h2>Масла G-Truck</h2>
+    <div class="item"><h3>G-Truck 15W-40</h3><p>от 50 000 сум/л</p><button onclick="addToCart('G-Truck 15W-40')">В корзину</button></div>
+
+    <h2>Масла G-Box</h2>
+    <div class="item"><h3>G-Box 5W-30</h3><p>от 65 000 сум/л</p><button onclick="addToCart('G-Box 5W-30')">В корзину</button></div>
+
+    <h2>Масла Gazpromneft</h2>
+    <div class="item"><h3>Gazpromneft Diesel Premium 10W-40</h3><p>от 47 000 сум/л</p><button onclick="addToCart('Gazpromneft Diesel Premium 10W-40')">В корзину</button></div>
+
+    <div class="cart">
+      <h2>Корзина</h2>
+      <ul id="cart-list"></ul>
+      <button onclick="sendToTelegram()">📤 Отправить заказ в Telegram</button>
+    </div>
+
   </div>
-
-  <div class="cart" id="cart">
-    <h2>🛒 Корзина</h2>
-    <ul id="cart-items"></ul>
-    <button onclick="sendTelegramOrder()">📤 Отправить заказ в Telegram</button>
-  </div>
-
-  <div class="footer">
-    © 2025 Oil & Filter Shop | Все права защищены
-  </div>
+  <footer>
+    <p>&copy; 2025 Масла и Фильтры. Все права защищены.</p>
+  </footer>
 
   <script>
     const cart = [];
-
-    function addToCart(product) {
-      cart.push(product);
-      updateCart();
+    function addToCart(item) {
+      cart.push(item);
+      renderCart();
     }
-
-    function updateCart() {
-      const list = document.getElementById('cart-items');
-      list.innerHTML = '';
-      cart.forEach(item => {
+    function renderCart() {
+      const cartList = document.getElementById('cart-list');
+      cartList.innerHTML = '';
+      cart.forEach((item, index) => {
         const li = document.createElement('li');
         li.textContent = item;
-        list.appendChild(li);
+        cartList.appendChild(li);
       });
     }
-
-    function sendTelegramOrder() {
-      const message = encodeURIComponent("🛒 Заказ:\n" + cart.map(i => `- ${i}`).join('\n'));
+    function sendToTelegram() {
+      const message = encodeURIComponent(`Заказ: ${cart.join(', ')}`);
       window.open(`https://t.me/Baxa012394?text=${message}`, '_blank');
     }
   </script>
