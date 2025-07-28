@@ -29,14 +29,19 @@
     .item-title {
       font-weight: bold;
     }
+    .item.added {
+      border: 2px solid #00ffcc;
+      background-color: #204060;
+    }
     .cart-button {
       background-color: #ffcc00;
       color: #000;
       border: none;
-      padding: 10px;
+      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
       margin-top: 10px;
+      margin-right: 10px;
     }
     .cart {
       background-color: #1f3a5c;
@@ -45,83 +50,98 @@
       border-radius: 10px;
     }
     a { color: #00ccff; }
-
-    .added {
-      border: 2px solid #00ff99;
-    }
   </style>
 </head>
 <body>
   <h1>Интернет-магазин масел и фильтров</h1>
 
   <div class="section">
-    <h2>Масла MOTUL</h2>
-    <div class="item" onclick="addToCart(this, 'Motul 8100 X-cess 15W-40 — 95 000 сум/л')">
-      <span class="item-title">Motul 8100 X-cess 15W-40</span> — 95 000 сум/л
-    </div>
-    <div class="item" onclick="addToCart(this, 'Motul 6100 Synergie+ 10W-40 — 80 000 сум/л')">
-      <span class="item-title">Motul 6100 Synergie+ 10W-40</span> — 80 000 сум/л
-    </div>
-    <div class="item" onclick="addToCart(this, 'Motul 2100 Power+ 10W-40 — 75 000 сум/л')">
-      <span class="item-title">Motul 2100 Power+ 10W-40</span> — 75 000 сум/л
-    </div>
-    <div class="item" onclick="addToCart(this, 'Motul Specific 504 00 507 00 5W-30 — 110 000 сум/л')">
-      <span class="item-title">Motul Specific 504/507 5W-30</span> — 110 000 сум/л
-    </div>
+    <h2>Масла Motul</h2>
+    <div class="item" onclick="addToCart(this)">Motul 8100 X-clean 5W-40 — 120 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">Motul 6100 Synergie+ 10W-40 — 105 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">Motul 300V 5W-30 — 180 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">Motul 4100 Power 15W-50 — 110 000 сум/л</div>
+  </div>
+
+  <div class="section">
+    <h2>Масла Gazprom и G-Profi</h2>
+    <div class="item" onclick="addToCart(this)">G-Profi GTS 10W-40 — 65 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">G-Profi GVL 15W-40 — 55 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">G-Special MILK 10W-40 — 47 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">G-Special Power J 10W-30 — 52 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">G-Truck 15W-40 — 58 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">G-Box Turbo Diesel 10W-40 — 60 000 сум/л</div>
+    <div class="item" onclick="addToCart(this)">Gazpromneft Diesel Premium 15W-40 — 50 000 сум/л</div>
   </div>
 
   <div class="section">
     <h2>Фильтры Fleetguard</h2>
-    <div class="item" onclick="addToCart(this, 'LF777 — масляный — 370 000 сум')">LF777 — масляный — 370 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'FS1242 — топливный — 99 000 сум')">FS1242 — топливный — 99 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'AF25354 — воздушный — 150 000 сум')">AF25354 — воздушный — 95 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'FS19769/PL420 — топливный сепаратор — 90 000 сум')">FS19769/PL420 — топливный сепаратор — 90 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'AF55015 — воздушный — 180 000 сум')">AF55015 — воздушный — 180 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'FS19816 — сепаратор воды — 150 000 сум')">FS19816 — сепаратор воды — 150 000 сум</div>
+    <div class="item" onclick="addToCart(this)">LF3000 — масляный — 85 000 сум</div>
+    <div class="item" onclick="addToCart(this)">FS1242 — топливный — 95 000 сум</div>
+    <div class="item" onclick="addToCart(this)">AF25354 — воздушный — 110 000 сум</div>
+    <div class="item" onclick="addToCart(this)">LF9009 — масляный — 89 000 сум</div>
+    <div class="item" onclick="addToCart(this)">AF55015 — воздушный — 120 000 сум</div>
+    <div class="item" onclick="addToCart(this)">FS19816 — сепаратор воды — 130 000 сум</div>
   </div>
 
   <div class="section">
     <h2>Фильтры Reetguard</h2>
-    <div class="item" onclick="addToCart(this, 'LF9009 — масляный — 99 000 сум')">LF9009 — масляный — 99 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'AF55015 — воздушный — 185 000 сум')">AF55015 — воздушный — 185 000 сум</div>
-    <div class="item" onclick="addToCart(this, 'FS19763 — топливный — 169 000 сум')">FS19763 — топливный — 169 000 сум</div>
+    <div class="item" onclick="addToCart(this)">LF9009 — масляный — 87 000 сум</div>
+    <div class="item" onclick="addToCart(this)">AF55015 — воздушный — 118 000 сум</div>
+    <div class="item" onclick="addToCart(this)">FS19763 — топливный — 99 000 сум</div>
   </div>
 
   <div class="cart">
     <h2>Корзина</h2>
-    <p>Для оформления заказа отправьте список выбранных товаров на Telegram:</p>
+    <ul id="cart-list"></ul>
+
+    <button class="cart-button" onclick="sendToTelegram()">📤 Отправить в Telegram</button>
+    <button class="cart-button" style="background-color:#ff4d4d" onclick="clearCart()">🗑 Очистить корзину</button>
+
+    <p style="margin-top: 20px;">Для оформления заказа отправьте список выбранных товаров на Telegram:</p>
     <p><strong>Телеграм:</strong> <a href="https://t.me/muminovxurshid" target="_blank">@muminovxurshid</a></p>
     <p><strong>Телефон:</strong> +998903590555</p>
     <p><strong>Каталог:</strong> <a href="https://drive.google.com" target="_blank">Открыть на Google Диске</a></p>
-    <p><strong>Ваш заказ:</strong></p>
-    <ul id="orderList"></ul>
-    <button class="cart-button" onclick="sendToTelegram()">📤 Отправить в Telegram</button>
   </div>
 
   <script>
     const order = [];
 
-    function addToCart(element, itemName) {
-      if (!order.includes(itemName)) {
-        order.push(itemName);
-        element.classList.add('added');
-        updateCart();
+    function addToCart(el) {
+      const itemText = el.textContent;
+      if (!order.includes(itemText)) {
+        order.push(itemText);
+        el.classList.add("added");
+      } else {
+        order.splice(order.indexOf(itemText), 1);
+        el.classList.remove("added");
       }
+      updateCart();
     }
 
     function updateCart() {
-      const list = document.getElementById('orderList');
-      list.innerHTML = '';
+      const list = document.getElementById("cart-list");
+      list.innerHTML = "";
       order.forEach(item => {
-        const li = document.createElement('li');
+        const li = document.createElement("li");
         li.textContent = item;
         list.appendChild(li);
       });
     }
 
     function sendToTelegram() {
-      const message = encodeURIComponent('Здравствуйте! Я хочу заказать:\n\n' + order.join('\n'));
-      window.open('https://t.me/muminovxurshid?text=' + message, '_blank');
+      if (order.length === 0) {
+        alert("Корзина пуста.");
+        return;
+      }
+      const message = encodeURIComponent("🛒 Новый заказ:\n\n" + order.join("\n"));
+      window.open("https://t.me/muminovxurshid?text=" + message, "_blank");
+    }
+
+    function clearCart() {
+      order.length = 0;
+      updateCart();
+      document.querySelectorAll('.item.added').forEach(el => el.classList.remove('added'));
     }
   </script>
 </body>
