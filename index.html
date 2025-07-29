@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Интернет-магазин масел и фильтров</title>
-
-  <!-- ✅ Google Verification Meta Tag -->
   <meta name="google-site-verification" content="gUjTNJYiEI5RA2PTgs0fZv8HgaTHOdaRgBxksrQnnzk" />
-
   <style>
     body {
       background-color: #0b1a2b;
@@ -67,15 +64,22 @@
       cursor: pointer;
       z-index: 999;
     }
+    .form-field {
+      margin-bottom: 10px;
+    }
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
     a { color: #00ccff; }
   </style>
 </head>
 <body>
-  
   <div class="header-cart" onclick="viewCart()">
     🛒 Корзина <span id="cart-count" class="cart-indicator">0</span>
   </div>
-
   <h1>Интернет-магазин масел и фильтров</h1>
 
   <div class="section">
@@ -86,7 +90,7 @@
     <div class="item" onclick="addToCart('Motul TEKMA MEGA 15W-40 — 47 040 сум/л')">
       <span class="item-title">Motul TEKMA MEGA 15W-40</span> — 47 040 сум/л
     </div>
-     <div class="item" onclick="addToCart('Motul SUPRABAR SY 46 — 96 320 сум/л')">
+    <div class="item" onclick="addToCart('Motul SUPRABAR SY 46 — 96 320 сум/л')">
       <span class="item-title">Motul SUPRABAR SY 46</span> — 96 320 сум/л
     </div>
   </div>
@@ -95,26 +99,39 @@
     <h2>Фильтры Fleetguard</h2>
     <div class="item" onclick="addToCart('LF3349 — масляный — 40 000 сум')">LF3349 — масляный — 40 000 сум</div>
     <div class="item" onclick="addToCart('LF3625 — масляный — 37 000 сум')">LF3625 — масляный — 37 000 сум</div>
-     <div class="item" onclick="addToCart('LF4054 — масляный — 42 000 сум')">LF4054 — масляный — 42 000 сум</div>
-     <div class="item" onclick="addToCart('FS1040 — сепаратор — 195 000 сум')">FS1040 — сепаратор — 195 000 сум</div>
-     <div class="item" onclick="addToCart('FF5018 — топливный — 28 000 сум')">FF5018 — топливный — 28 000 сум</div>
+    <div class="item" onclick="addToCart('LF4054 — масляный — 42 000 сум')">LF4054 — масляный — 42 000 сум</div>
+    <div class="item" onclick="addToCart('FS1040 — сепаратор — 195 000 сум')">FS1040 — сепаратор — 195 000 сум</div>
+    <div class="item" onclick="addToCart('FF5018 — топливный — 28 000 сум')">FF5018 — топливный — 28 000 сум</div>
     <div class="item" onclick="addToCart('FS1242 — топливный — 89 000 сум')">FS1242 — топливный — 89 000 сум</div>
     <div class="item" onclick="addToCart('AF25897 — воздушный — 230 000 сум')">AF25897 — воздушный — 230 000 сум</div>
   </div>
-   <div class="section">
-  <h2>Фильтры Reetguard</h2>
-<div class="item" onclick="addToCart('LF9009 — масляный — 130 000 сум')">LF9009 — масляный — 130 000 сум</div>
-<div class="item" onclick="addToCart('C26106 — воздушный — 35 000 сум')">C26106 — воздушный — 35 000 сум</div>
-<div class="item" onclick="addToCart(' FS19735 — топливный — 99 000 сум')">FS19735 — топливный — 99 000 сум</div>
+
+  <div class="section">
+    <h2>Фильтры Reetguard</h2>
+    <div class="item" onclick="addToCart('LF9009 — масляный — 130 000 сум')">LF9009 — масляный — 130 000 сум</div>
+    <div class="item" onclick="addToCart('C26106 — воздушный — 35 000 сум')">C26106 — воздушный — 35 000 сум</div>
+    <div class="item" onclick="addToCart('FS19735 — топливный — 99 000 сум')">FS19735 — топливный — 99 000 сум</div>
+  </div>
 
   <div class="cart" id="cart">
     <h2>Корзина</h2>
     <ul id="cart-items"></ul>
+    <div class="form-field">
+      <input type="text" id="name" placeholder="Имя">
+    </div>
+    <div class="form-field">
+      <input type="text" id="phone" placeholder="Телефон">
+    </div>
+    <div class="form-field">
+      <textarea id="note" placeholder="Примечание"></textarea>
+    </div>
+    <button onclick="sendToTelegram()">Отправить заказ в Telegram</button>
+    <button onclick="clearCart()">Очистить корзину</button>
     <p><strong>Телеграм:</strong> <a href="https://t.me/muminovxurshid" target="_blank">@muminovxurshid</a></p>
     <p><strong>Телефон:</strong> <a href="tel:+998903590555">+998903590555</a></p>
     <p><strong>Каталог:</strong> <a href="https://drive.google.com" target="_blank">Открыть на Google Диске</a></p>
-    <button onclick="clearCart()">Очистить корзину</button>
   </div>
+
   <script>
     const cart = [];
     function addToCart(item) {
@@ -144,5 +161,15 @@
       document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
     }
 
+    function sendToTelegram() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const note = document.getElementById("note").value;
+      const items = cart.join("%0A");
+      const message = `🛒 Новый заказ:%0AИмя: ${name}%0AТелефон: ${phone}%0AПримечание: ${note}%0AЗаказ:%0A${items}`;
+      const telegramLink = `https://t.me/muminovxurshid?text=${message}`;
+      window.open(telegramLink, '_blank');
+    }
+  </script>
 </body>
 </html>
