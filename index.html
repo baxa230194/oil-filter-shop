@@ -115,13 +115,13 @@
     <p><strong>Каталог:</strong> <a href="https://drive.google.com" target="_blank">Открыть на Google Диске</a></p>
     <button onclick="clearCart()">Очистить корзину</button>
   </div>
-   <script>
-   const handleOrderClick = () => {
-  const message = `Здравствуйте! Хочу заказать:\n\n🔧 ${product.name}\n💵 Цена: ${product.price} сум\n\nСвяжитесь со мной, пожалуйста.`;
-  const telegramUsername = 'muminovxurshid';
-  const telegramLink = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
-  window.open(telegramLink, '_blank');
-};
+    </script>
+<button
+  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+  onClick={handleOrderClick}
+>
+  Заказать
+</button>
   <script>
     const cart = [];
     function addToCart(item) {
@@ -150,12 +150,6 @@
     function viewCart() {
       document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
     }
-  </script>
-<button
-  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
-  onClick={handleOrderClick}
->
-  Заказать
-</button>
+
 </body>
 </html>
