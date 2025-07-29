@@ -71,7 +71,12 @@
   </style>
 </head>
 <body>
-
+const handleOrderClick = () => {
+  const message = `Здравствуйте! Хочу заказать:\n\n🔧 ${product.name}\n💵 Цена: ${product.price} сум\n\nСвяжитесь со мной, пожалуйста.`;
+  const telegramUsername = 'baxa230194';
+  const telegramLink = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
+  window.open(telegramLink, '_blank');
+};
   <div class="header-cart" onclick="viewCart()">
     🛒 Корзина <span id="cart-count" class="cart-indicator">0</span>
   </div>
