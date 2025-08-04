@@ -90,6 +90,8 @@
 
     .cart li {
       margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
     }
 
     .form-group {
@@ -137,85 +139,25 @@
   <div class="container">
 
     <!-- Catalog -->
-    <div class="catalog">
-      <div class="section-title">Масла MOTUL</div>
-
-      <div class="card">
-        <h3>15W-40</h3>
-        <p>Категория: Масло</p>
-        <p>Цена: 120 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="card">
-        <h3>10W-40</h3>
-        <p>Категория: Масло</p>
-        <p>Цена: 120 900 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="card">
-        <h3>20W-50</h3>
-        <p>Категория: Масло</p>
-        <p>Цена: 720 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="section-title">Фильтры</div>
-
-      <div class="card">
-        <h3>Fleetguard LF</h3>
-        <p>Категория: Фильтр</p>
-        <p>Цена: 88 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="card">
-        <h3>Fleetguard | REETGUARD</h3>
-        <p>Категория: Фильтр</p>
-        <p>Цена: 79 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="card">
-        <h3>REETGUARD LF</h3>
-        <p>Категория: Фильтр</p>
-        <p>Цена: 75 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-
-      <div class="card">
-        <h3>REETGUARD | REETSARD</h3>
-        <p>Категория: Фильтр</p>
-        <p>Цена: 69 000 сум</p>
-        <button class="btn">Добавить в корзину</button>
-      </div>
-    </div>
+    <div class="catalog" id="catalog"></div>
 
     <!-- Cart -->
     <div class="cart">
       <h3>Корзина</h3>
-      <ul>
-        <li>REETGUARD LF</li>
-        <li>Fleetguard AF</li>
-        <li>Fleetguard E5</li>
-      </ul>
+      <ul id="cart-list"></ul>
 
       <div class="form-group">
-        <label for="name">Имя</label>
-        <input type="text" id="name" placeholder="Ваше имя">
+        <label>Имя</label>
+        <input type="text" placeholder="Ваше имя">
       </div>
-
       <div class="form-group">
-        <label for="phone">Телефон</label>
-        <input type="text" id="phone" placeholder="Ваш номер телефона">
+        <label>Телефон</label>
+        <input type="text" placeholder="Ваш номер телефона">
       </div>
-
       <div class="form-group">
-        <label for="address">Адрес</label>
-        <input type="text" id="address" placeholder="Ваш адрес доставки">
+        <label>Адрес</label>
+        <input type="text" placeholder="Ваш адрес доставки">
       </div>
-
       <button class="btn" style="width:100%; margin-top:20px;">Оформить заказ</button>
     </div>
   </div>
@@ -228,6 +170,68 @@
       <p>🔗 Telegram: <a href="https://t.me/Baxa10394" style="color:#ff3c3c;">@Baxa10394</a></p>
     </div>
   </div>
+
+  <script>
+    const products = [
+      { name: "15W-40", category: "Масло", price: 120000 },
+      { name: "10W-40", category: "Масло", price: 120900 },
+      { name: "20W-50", category: "Масло", price: 720000 },
+      { name: "Fleetguard LF", category: "Фильтр", price: 88000 },
+      { name: "Fleetguard", category: "Фильтр", price: 79000 },
+      { name: "REETGUARD LF", category: "Фильтр", price: 75000 },
+      { name: "REETGUARD", category: "Фильтр", price: 69000 },
+      { name: "Fleetguard E5", category: "Фильтр", price: 95000 },
+      { name: "Fleetguard AF", category: "Фильтр", price: 87000 },
+      { name: "Fleetguard FF", category: "Фильтр", price: 94000 },
+      { name: "Fleetguard HF", category: "Фильтр", price: 86000 },
+    ];
+
+    const catalog = document.getElementById("catalog");
+    const cartList = document.getElementById("cart-list");
+    const cart = [];
+
+    function renderCatalog() {
+      let html = '<div class="section-title">Масла</div>';
+      products.forEach((p, index) => {
+        if (p.category === "Фильтр" && index === 3) {
+          html += '<div class="section-title">Фильтры</div>';
+        }
+        html += `
+          <div class="card">
+            <h3>${p.name}</h3>
+            <p>Категория: ${p.category}</p>
+            <p>Цена: ${p.price.toLocaleString()} сум</p>
+            <button class="btn" onclick="addToCart(${index})">Добавить в корзину</button>
+          </div>
+        `;
+      });
+      catalog.innerHTML = html;
+    }
+
+    function renderCart() {
+      cartList.innerHTML = "";
+      cart.forEach((item, i) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.name} - ${item.price.toLocaleString()} сум
+          <button onclick="removeFromCart(${i})" style="background:none; color:#ff3c3c; border:none; cursor:pointer;">×</button>
+        `;
+        cartList.appendChild(li);
+      });
+    }
+
+    function addToCart(index) {
+      cart.push(products[index]);
+      renderCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    renderCatalog();
+  </script>
 
 </body>
 </html>
