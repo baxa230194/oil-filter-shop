@@ -21,10 +21,6 @@
       border-bottom: 2px solid #1f2a4d;
     }
 
-    header img {
-      height: 60px;
-    }
-
     h1 {
       font-size: 24px;
       color: #ff3c3c;
@@ -132,16 +128,14 @@
 <body>
 
   <header>
-    <img src="https://images.unsplash.com/photo-1691836464917-3e1c0e2130c8?fit=crop&w=200&q=80" alt="FilterOil Logo">
-    <h1>Oil & Filter Shop | Uzbekistan</h1>
+    <h1>FilterOil — масла и фильтры</h1>
   </header>
 
   <div class="container">
-
-    <!-- Catalog -->
+    <!-- Каталог -->
     <div class="catalog" id="catalog"></div>
 
-    <!-- Cart -->
+    <!-- Корзина -->
     <div class="cart">
       <h3>Корзина</h3>
       <ul id="cart-list"></ul>
@@ -173,17 +167,19 @@
 
   <script>
     const products = [
-      { name: "15W-40", category: "Масло", price: 120000 },
-      { name: "10W-40", category: "Масло", price: 120900 },
-      { name: "20W-50", category: "Масло", price: 720000 },
-      { name: "Fleetguard LF", category: "Фильтр", price: 88000 },
-      { name: "Fleetguard", category: "Фильтр", price: 79000 },
-      { name: "REETGUARD LF", category: "Фильтр", price: 75000 },
-      { name: "REETGUARD", category: "Фильтр", price: 69000 },
+      // Масла
+      { name: "MOTUL 15W-40", category: "Масло", price: 120000 },
+      { name: "MOTUL 10W-40", category: "Масло", price: 120900 },
+      { name: "MOTUL 20W-50", category: "Масло", price: 720000 },
+      // Фильтры
+      { name: "Fleetguard LF16015", category: "Фильтр", price: 88000 },
+      { name: "Fleetguard FF5488", category: "Фильтр", price: 94000 },
+      { name: "Fleetguard AF25555", category: "Фильтр", price: 87000 },
+      { name: "Fleetguard HF35296", category: "Фильтр", price: 86000 },
       { name: "Fleetguard E5", category: "Фильтр", price: 95000 },
-      { name: "Fleetguard AF", category: "Фильтр", price: 87000 },
-      { name: "Fleetguard FF", category: "Фильтр", price: 94000 },
-      { name: "Fleetguard HF", category: "Фильтр", price: 86000 },
+      { name: "Reetguard LF16015", category: "Фильтр", price: 75000 },
+      { name: "Reetguard FF5488", category: "Фильтр", price: 79000 },
+      { name: "Reetguard AF25555", category: "Фильтр", price: 69000 }
     ];
 
     const catalog = document.getElementById("catalog");
