@@ -167,19 +167,12 @@
 
   <script>
     const products = [
-      // Масла
-      { name: "MOTUL 15W-40", category: "Масло", price: 120000 },
-      { name: "MOTUL 10W-40", category: "Масло", price: 120900 },
-      { name: "MOTUL 20W-50", category: "Масло", price: 720000 },
-      // Фильтры
-      { name: "Fleetguard LF16015", category: "Фильтр", price: 88000 },
-      { name: "Fleetguard FF5488", category: "Фильтр", price: 94000 },
-      { name: "Fleetguard AF25555", category: "Фильтр", price: 87000 },
-      { name: "Fleetguard HF35296", category: "Фильтр", price: 86000 },
-      { name: "Fleetguard E5", category: "Фильтр", price: 95000 },
-      { name: "Reetguard LF16015", category: "Фильтр", price: 75000 },
-      { name: "Reetguard FF5488", category: "Фильтр", price: 79000 },
-      { name: "Reetguard AF25555", category: "Фильтр", price: 69000 }
+      {
+        name: "Motul Tekma Mega 15W-40 CI-4 (20L)",
+        category: "Масло",
+        price: 1065000,
+        description: "Минеральное моторное масло для дизельных двигателей. Подходит для грузовиков, автобусов и спецтехники."
+      }
     ];
 
     const catalog = document.getElementById("catalog");
@@ -189,14 +182,12 @@
     function renderCatalog() {
       let html = '<div class="section-title">Масла</div>';
       products.forEach((p, index) => {
-        if (p.category === "Фильтр" && index === 3) {
-          html += '<div class="section-title">Фильтры</div>';
-        }
         html += `
           <div class="card">
             <h3>${p.name}</h3>
             <p>Категория: ${p.category}</p>
-            <p>Цена: ${p.price.toLocaleString()} сум</p>
+            ${p.description ? `<p>${p.description}</p>` : ''}
+            <p><strong>Цена:</strong> ${p.price.toLocaleString()} сум</p>
             <button class="btn" onclick="addToCart(${index})">Добавить в корзину</button>
           </div>
         `;
@@ -226,8 +217,37 @@
       renderCart();
     }
 
+    document.querySelector(".btn[style*='width:100%']").addEventListener("click", () => {
+      const name = document.querySelector("input[placeholder='Ваше имя']").value.trim();
+      const phone = document.querySelector("input[placeholder='Ваш номер телефона']").value.trim();
+      const address = document.querySelector("input[placeholder='Ваш адрес доставки']").value.trim();
+
+      if (!name || !phone || !address) {
+        alert("Пожалуйста, заполните все поля.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert("Корзина пуста.");
+        return;
+      }
+
+      let summary = `🧾 ЗАКАЗ\n\nИмя: ${name}\nТелефон: ${phone}\nАдрес: ${address}\n\n📦 Товары:\n`;
+      let total = 0;
+
+      cart.forEach(item => {
+        summary += `- ${item.name} (${item.price.toLocaleString()} сум)\n`;
+        total += item.price;
+      });
+
+      summary += `\n💰 Итого: ${total.toLocaleString()} сум`;
+
+      alert(summary);
+    });
+
     renderCatalog();
   </script>
 
 </body>
 </html>
+
